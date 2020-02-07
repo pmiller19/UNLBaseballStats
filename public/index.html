@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700|Titillium+Web&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <title>UNL Baseball</title>
+
+    <!---jquery CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+
+    <div class="heading">
+        <img id="unl-logo" class="heading-child" src="unlLogo2.jpg" width="55" height="55" alt="logo">
+        <p class="heading-child">Baseball</p>
+    </div>
+
+    <div class="loadingScreen">
+        <div class="button-container">
+            <button onclick="startNewDay()" class="load-button" >Start a New Day</button>
+            <button onclick="continueLastDay()" class="load-button">Continue with Last Day</button>
+            <p class="egoLogo">Powered by the Managers</p>
+        </div>
+    </div>
+
+    <div class="toastContainer">
+        <div class="toastPop">
+            <p id="toastText">poop</p>
+        </div>
+    </div>  
+
+
+    <div class="content">
+        
+        <div class="player-card" id="boynton" data-toggle="modal" data-target="#myModal" onclick="cardPressed(this)">
+            <p>Boynton</p>
+        </div>
+        
+        <div class="player-card" id="rosebury" data-toggle="modal" data-target="#myModal" onclick="cardPressed(this)">
+            <p>Rosebury</p>
+        </div>
+
+        <div class="player-card" id="chick" data-toggle="modal" data-target="#myModal" onclick="cardPressed(this)">
+            <p>Chick</p>
+        </div>
+
+        <div class="player-card" id="gillin" data-toggle="modal" data-target="#myModal" onclick="cardPressed(this)">
+            <p>Gillin</p>
+        </div>
+
+        <div class="player-card" id="hallmark" data-toggle="modal" data-target="#myModal" onclick="cardPressed(this)">
+            <p>Hallmark</p>
+        </div>
+
+        <div class="player-card" id="schwelly" data-toggle="modal" data-target="#myModal" onclick="cardPressed(this)">
+            <p>Schwellenbach</p>
+        </div>
+
+        <div class="player-card" id="banjoff" data-toggle="modal" data-target="#myModal" onclick="cardPressed(this)">
+            <p>Banjoff</p>
+        </div>
+
+
+        <!-- Modal -->
+        <div id="myModal" class="modal" role="dialog">
+            <div class="modal-dialog">
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Picks</p>
+                        <div class="buttons">
+                            <button class="button plus" id="picksP" onclick="statButtonPress(this)">+</button>
+                            <button class="button minus" id="picksM" onclick="statButtonPress(this)">-</button>
+                        </div>
+                    <p>Awareness</p>
+                        <div class="buttons">
+                            <button class="button plus" id="awarenessP" onclick="statButtonPress(this)">+</button>
+                            <button class="button minus" id="awarenessM" onclick="statButtonPress(this)">-</button>
+                        </div>
+                    <p>Competitive</p>
+                        <div class="buttons">
+                            <button class="button plus" id="competitiveP" onclick="statButtonPress(this)">+</button>
+                            <button class="button minus" id="competitiveM" onclick="statButtonPress(this)">-</button>
+                        </div>
+                    <p>Diving</p>
+                        <div class="buttons">
+                            <button class="button plus" id="divingP" onclick="statButtonPress(this)">+</button>
+                            <button class="button minus" id="divingM" onclick="statButtonPress(this)">-</button>
+                        </div>
+                    <p>Left on Ground</p>
+                        <div class="buttons">
+                            <button class="button plus" id="groundP" onclick="statButtonPress(this)">+</button>
+                            <button class="button minus" id="groundM" onclick="statButtonPress(this)">-</button>
+                        </div>
+                    <p>Throwing</p>
+                        <div class="buttons">
+                            <button class="button plus" id="throwingP" onclick="statButtonPress(this)">+</button>
+                            <button class="button minus" id="throwingM" onclick="statButtonPress(this)">-</button>
+                        </div>
+                    <p>Fielding</p>
+                        <div class="buttons">
+                            <button class="button plus" id="fieldingP" onclick="statButtonPress(this)">+</button>
+                            <button class="button minus" id="fieldingM" onclick="statButtonPress(this)">-</button>
+                        </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default dismiss-button" data-dismiss="modal" onclick="confirmPressed()">Confirm</button>
+                </div>
+            </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+    <script src="index.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.8.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.8.1/firebase-analytics.js"></script>
+    <script src="/__/firebase/7.8.1/firebase-firestore.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    
+    </body>
+</html>
