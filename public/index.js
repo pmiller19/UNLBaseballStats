@@ -3,6 +3,9 @@ let tPlus = document.getElementById('throwing-plus');
 let confirmNote = document.querySelector('.modal-text');
 let toastBody = document.querySelector('.toast');
 
+//test comment
+
+
 
 //global probably bad practice
 let name = '';
