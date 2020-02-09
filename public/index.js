@@ -3,8 +3,7 @@ let tPlus = document.getElementById('throwing-plus');
 let confirmNote = document.querySelector('.modal-text');
 let toastBody = document.querySelector('.toast');
 
-//test comment
-
+let db;
 
 
 //global probably bad practice
@@ -27,7 +26,7 @@ document.addEventListener("DOMContentLoaded", event =>{
 
 
     let app = firebase.app();
-
+    db = firebase.firestore();
     let date = d.getMonth() + 1 + '-' + d.getDate() + '-' + d.getFullYear();
 
     
@@ -61,30 +60,57 @@ function cardPressed(namePressed){
 function statButtonPress(clicked){
     play = clicked.id;
     modalTitle.textContent = name + ' ' + play + ' ' + type;
-
 }
 
 function confirmPressed(){
     showToast(name + ' ' + play + ' ' + type); 
-    
-    //grab the data with a document snapshot
 
-    db = firebase.firestore();
+    //get current value
 
-    db.collection("Players").doc(name)
-  .get()
-  .then(function(doc) {
-    if (doc.exists) {
-      console.log("Document data:", doc.data().day.awarenessM); 
-    } else {
-      // doc.data() will be undefined in this case
-      console.log("No such document!");
-    }
-  }).catch(function(error) {
-    console.log("Error getting document:", error);
-  });
-
+    changeDatabaseVal();
 }
+
+
+function changeDatabaseVal(){
+
+    var data= 1;
+
+    var docRef = db.collection("Players").doc(name);
+    docRef.get().then(function(doc) {
+        if (doc.exists) {
+
+            //get the current value
+            data = doc.data().day[play];
+
+            let fieldUpdate = 'day.' + play;
+
+            console.log(fieldUpdate);
+
+            console.log(fieldUpdate)
+
+            console.log(play, data);
+
+
+
+            docRef.update({
+                [`day.${play}`]: data+1
+            });
+
+
+            console.log('updated', data);
+            
+
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });
+}
+
+
+
 
 function showToast(string){
     //set the toast text
