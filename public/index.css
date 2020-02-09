@@ -1,144 +1,136 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-body{
-    background-color: #dfdfdf;
-    font-family: 'Raleway', sans-serif;
+body {
+  background-color: #dfdfdf;
+  font-family: "Raleway", sans-serif;
 }
-button{
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-
-p{
-    margin-bottom: 5px;
-    margin-top: 5px;
+button {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-button{
-    border: none;
+p {
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
-.content{
-    margin: 0px 8px 0px 8px;
+button {
+  border: none;
 }
 
+.content {
+  margin: 0px 8px 0px 8px;
+}
 
 /*player cards */
 
-.player-card{
-    background-color: white;
-    height: 85px;
-    border-radius: 5px;
-    margin: 8px 0px 8px 0px;
-    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+.player-card {
+  background-color: white;
+  height: 85px;
+  border-radius: 5px;
+  margin: 8px 0px 8px 0px;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
-    text-align: center;
-    padding-top: 23px;
-    font-size: 18px;
+  text-align: center;
+  padding-top: 23px;
+  font-size: 18px;
 }
 /*end of player cards*/
 
-
 /*heading styles*/
-.heading{
-    background-color: rgb(48, 47, 47);
-    padding-left: 10px;
+.heading {
+  background-color: rgb(48, 47, 47);
+  padding: 10px;
+  margin-bottom: -5px;
 }
 
-.heading-child{
-    display: inline;
-    color: white;
+.heading-child {
+  display: inline;
+  color: white;
 }
 
-#unl-logo{
-    margin: 10px 4px 10px 10px;
-    font-size: 30px;
+#unl-logo {
+  font-size: 30px;
 }
-
 
 /*plus/minus buttons*/
-.buttons{
-    margin-left: 8px;
+.buttons {
+  margin-left: 8px;
 }
-.button{
-    background-color: grey;
-    width: 150px;
-    border-radius: 5px;
-    color: white;
-    font-size: 20px;
-}
-
-.minus{
-    background-color: red;
+.button {
+  background-color: grey;
+  width: 150px;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
 }
 
+.minus {
+  background-color: red;
+}
 
 /*modal*/
 
-#myModal{
-    margin-top: 20px;
+#myModal {
+  margin-top: 20px;
 }
-.modal-footer{
-    text-align: left;
+.modal-footer {
+  text-align: left;
 }
-.dismiss-button{
-    width: 100%;
+.dismiss-button {
+  width: 100%;
 }
 
 /*toast*/
-.toastPop{
-    background-color: rgb(172, 230, 172);
-    border-radius: 5px;
-    margin: 0px 24px 20px 24px;
-    padding: 4px 20px 4px 20px;
-    text-align: center;
+.toastPop {
+  background-color: rgb(172, 230, 172);
+  border-radius: 5px;
+  margin: 0px 24px 20px 24px;
+  padding: 4px 20px 4px 20px;
+  text-align: center;
 }
 
-.toastContainer{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    display: none;
+.toastContainer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  display: none;
 }
-
 
 /*loading screen*/
-.loadingScreen{
-    position: fixed;
-    background-color: rgb(48, 47, 47);
-    width: 100%;
-    height: 100%;
-    display: block;
-    text-align: center;
+.loadingScreen {
+  padding-top: 100px;
+  position: fixed;
+  background-color: rgb(48, 47, 47);
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-align: center;
 }
 
 /*adding players*/
-.addPlayers{
-    position: fixed;
-    background-color: rgb(48, 47, 47);
-    width: 100%;
-    height: 100%;
-    display: block;
-    text-align: center;
- }
- 
-
-.button-container{
-    margin-top: 180px;
+.addPlayers {
+  background-color: rgb(48, 47, 47);
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-align: center;
+  margin-top: 0px;
 }
 
-.load-button{
-    width: 80%;
-    background-color: rgb(66, 65, 65);
-    color: white;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 20px 10px;
+.load-button {
+  width: 80%;
+  background-color: rgb(66, 65, 65);
+  color: white;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 20px 10px;
 }
-.egoLogo{
-    color: rgb(190,0,0);
+.egoLogo {
+  color: rgb(190, 0, 0);
 }

@@ -1,0 +1,36 @@
+body {
+  background-color: rgb(48, 47, 47);
+  font-family: "Raleway", sans-serif;
+}
+
+/*card layout*/
+
+.player-row {
+  text-align: center;
+  margin: 20px 8px;
+}
+.player-card {
+  background-color: rgb(66, 65, 65);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.16), 0 2px 2px rgba(0, 0, 0, 0.23);
+  display: inline-block;
+  margin: 8px 3px;
+  border-radius: 5px;
+  width: 45%;
+  text-align: center;
+  padding-top: 4px;
+  height: fit-content;
+}
+
+/*card info*/
+#card-name {
+  font-size: 18px;
+  color: white;
+}
+#card-position {
+  font-size: 16px;
+  color: rgb(190, 0, 0);
+}
+#card-success {
+  font-size: 16px;
+  color: rgb(190, 0, 0);
+}

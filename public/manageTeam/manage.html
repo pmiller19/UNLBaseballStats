@@ -23,7 +23,7 @@
     />
 
     <!--our styles-->
-    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../index.css" />
 
     <!--jQuery stuff-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -35,29 +35,49 @@
   </head>
 
   <body>
-    <div class="loadingScreen">
-        <div class="button-container">
-          <button onclick="startNewDay()" class="load-button">
-            Start a New Day
-          </button>
-          <button onclick="continueLastDay()" class="load-button">
-            Continue with Last Day
-          </button>
-          <a href="statsPage/stats.html"
-            ><button onclick="loadStats()" class="load-button">
-              View Stats
-            </button></a
-          >
-          <a href="#"
-            ><button onclick="managePlayers()" class="load-button">
-                Manage Players
-            </button></a>
-          <p class="egoLogo">Powered by the Managers</p>
-        </div>
+    <div class="heading">
+      <img
+        id="../imagesunl-logo"
+        class="heading-child"
+        src="../images/unlLogo2.jpg"
+        width="55"
+        height="55"
+        alt="logo"
+      />
+      <p class="heading-child">Baseball</p>
+    </div>
+
+    <div class="addPlayers">
+      <div class="button-container">
+        <p class="egoLogo">Input Player Names</p>
+        <br />
+        <input type="text" name="firstname" id="name" /><br />
+        <p><br /></p>
+        <p class="egoLogo">Input Player Height</p>
+        <br />
+        <input type="text" name="height" id="height" /><br />
+        <p><br /></p>
+        <p class="egoLogo">Input Player Weight</p>
+        <br />
+        <input type="text" name="weight" id="weight" /><br />
+        <p><br /></p>
+        <p class="egoLogo">Input Player Number</p>
+        <br />
+        <input type="text" name="number" id="number" /><br />
+        <p><br /></p>
+        <button onclick="inputPlayerName()" class="load-button">Submit</button>
       </div>
+    </div>
+
+    <div class="toastContainer">
+      <div class="toastPop">
+        <p id="toastText">poop</p>
+      </div>
+    </div>
 
     <!--our styles-->
-    <script src="index.js"></script>
+    <script src="manage.js"></script>
+    <script src="../index.js"></script>
 
     <!--Bootstrap stuff-->
     <!-- Optional JavaScript -->
