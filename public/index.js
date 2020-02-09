@@ -7,8 +7,6 @@ let playerList = ['Chick', 'Schwellenbach', 'Boynton', 'Gillin', 'Rosebury', 'Ha
 
 let db;
 
-alert('poop');
-
 //global probably bad practice
 let name = '';
 let play = '';
@@ -57,6 +55,9 @@ function startNewDay(){
     showToast('new day started');
 }
 
+function loadStats(){
+    console.log('poop');
+}
 
 function cardPressed(namePressed){
     name = namePressed.id;
