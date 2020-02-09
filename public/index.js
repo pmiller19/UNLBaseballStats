@@ -3,8 +3,11 @@ let tPlus = document.getElementById('throwing-plus');
 let confirmNote = document.querySelector('.modal-text');
 let toastBody = document.querySelector('.toast');
 
+let playerList = ['Chick', 'Schwellenbach', 'Boynton', 'Gillin', 'Rosebury', 'Hallmark', 'Banjoff'];
+
 let db;
 
+alert('poop');
 
 //global probably bad practice
 let name = '';
@@ -28,6 +31,9 @@ document.addEventListener("DOMContentLoaded", event =>{
     let app = firebase.app();
     db = firebase.firestore();
     let date = d.getMonth() + 1 + '-' + d.getDate() + '-' + d.getFullYear();
+
+    populateDatabase(date);
+
 
     
 
@@ -55,6 +61,7 @@ function startNewDay(){
 function cardPressed(namePressed){
     name = namePressed.id;
     modalTitle.textContent = name;
+    console.log('pressed');
 }
 
 function statButtonPress(clicked){
@@ -127,7 +134,7 @@ function showToast(string){
 
 
 
-function populateDatabase(date, db){
+function populateDatabase(date){
     for(var i=0; i<7; i++){
         db.collection("Players").doc(playerList[i]).set({
             day: {
@@ -145,7 +152,11 @@ function populateDatabase(date, db){
                 fieldingP: 0,
                 fieldingM:0,
                 awarenessP: 0,
-                awarenessM: 0
+                AwarenessM: 0,
+                Weight: 275,
+                Height: "6'4",
+                Number: 10000,
+                Position: 0
             }
         });
     }
