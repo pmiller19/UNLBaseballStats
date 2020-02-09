@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- fonts paker is a bum-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700|Titillium+Web&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!--our styles-->
+    <link rel="stylesheet" href="index.css">
+
+    <!--jQuery stuff-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <title>UNL Baseball</title>
+
+    <!---jquery CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="heading">
+        <img id="unl-logo" class="heading-child" src="images/unlLogo2.jpg" width="55" height="55" alt="logo">
+        <p class="heading-child">Baseball</p>
+    </div>
+
+    <div class="loadingScreen">
+        <div class="button-container">
+            <button onclick="startNewDay()" class="load-button">Start a New Day</button>
+            <button onclick="continueLastDay()" class="load-button">Continue with Last Day</button>
+            <a href="statsPage/stats.html"><button onclick="loadStats()" class="load-button">View Stats</button></a>
+            <p class="egoLogo">Powered by the Managers</p>
+        </div>
+    </div>
+
+
+    <div class="addPlayers">
+        <div class="button-container">
+            <p class="egoLogo">Input Player Names</p><br>
+            <input type="text" name="firstname" id="name"><br>
+            <p><br></p>
+            <p class="egoLogo">Input Player Height</p><br>
+            <input type="text" name="height" id="height"><br>
+            <p><br></p>
+            <p class="egoLogo">Input Player Weight</p><br>
+            <input type="text" name="weight" id="weight"><br>
+            <p><br></p>
+            <p class="egoLogo">Input Player Number</p><br>
+            <input type="text" name="number" id="number"><br>
+            <p><br></p>
+            <button onclick="inputPlayerName()" class="load-button">Submit</button>
+        </div>
+    </div>
+
+
+    <div class="toastContainer">
+        <div class="toastPop">
+            <p id="toastText">poop</p>
+        </div>
+    </div>
+
+
+    <div class="content">
+
+        <div class="player-card" id="Boynton" data-toggle="modal" data-target="#myModal" onclick="cardPressed(this)">
+            <p>Boynton</p>
+        </div>
+
+        <div class="player-card" id="Rosebury" data-toggle="modal" data-target="#myModal" onclick="cardPressed(this)">
+            <p>Rosebury</p>
+        </div>
+
+        <div class="player-card" id="Chick" data-toggle="modal" data-target="#myModal" onclick="cardPressed(this)">
+            <p>Chick</p>
+        </div>
+
+        <div class="player-card" id="Gillin" data-toggle="modal" data-target="#myModal" onclick="cardPressed(this)">
+            <p>Gillin</p>
+        </div>
+
+        <div class="player-card" id="Hallmark" data-toggle="modal" data-target="#myModal" onclick="cardPressed(this)">
+            <p>Hallmark</p>
+        </div>
+
+        <div class="player-card" id="Schwelly" data-toggle="modal" data-target="#myModal" onclick="cardPressed(this)">
+            <p>Schwellenbach</p>
+        </div>
+
+        <div class="player-card" id="Banjoff" data-toggle="modal" data-target="#myModal" onclick="cardPressed(this)">
+            <p>Banjoff</p>
+        </div>
+
+
+        <!-- Modal -->
+        <div id="myModal" class="modal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Picks</p>
+                        <div class="buttons">
+                            <button class="button plus" id="picksP" onclick="statButtonPress(this)">+</button>
+                            <button class="button minus" id="picksM" onclick="statButtonPress(this.id)">-</button>
+                        </div>
+                        <p>Awareness</p>
+                        <div class="buttons">
+                            <button class="button plus" id="awarenessP" onclick="statButtonPress(this)">+</button>
+                            <button class="button minus" id="awarenessM" onclick="statButtonPress(this)">-</button>
+                        </div>
+                        <p>Competitive</p>
+                        <div class="buttons">
+                            <button class="button plus" id="competitiveP" onclick="statButtonPress(this)">+</button>
+                            <button class="button minus" id="competitiveM" onclick="statButtonPress(this)">-</button>
+                        </div>
+                        <p>Diving</p>
+                        <div class="buttons">
+                            <button class="button plus" id="divingP" onclick="statButtonPress(this)">+</button>
+                            <button class="button minus" id="divingM" onclick="statButtonPress(this)">-</button>
+                        </div>
+                        <p>Left on Ground</p>
+                        <div class="buttons">
+                            <button class="button plus" id="groundP" onclick="statButtonPress(this)">+</button>
+                            <button class="button minus" id="groundM" onclick="statButtonPress(this)">-</button>
+                        </div>
+                        <p>Throwing</p>
+                        <div class="buttons">
+                            <button class="button plus" id="throwingP" onclick="statButtonPress(this)">+</button>
+                            <button class="button minus" id="throwingM" onclick="statButtonPress(this)">-</button>
+                        </div>
+                        <p>Fielding</p>
+                        <div class="buttons">
+                            <button class="button plus" id="fieldingP" onclick="statButtonPress(this)">+</button>
+                            <button class="button minus" id="fieldingM" onclick="statButtonPress(this)">-</button>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default dismiss-button" data-dismiss="modal"
+                            onclick="confirmPressed()">Confirm</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!--our styles-->
+    <script src="index.js"></script>
+
+    <!--Bootstrap stuff -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCfloakG9hhQWjP36A4Jp3Y-I0guiq2ln0",
+            authDomain: "unlbaseballstats.firebaseapp.com",
+            databaseURL: "https://unlbaseballstats.firebaseio.com",
+            projectId: "unlbaseballstats",
+            storageBucket: "unlbaseballstats.appspot.com",
+            messagingSenderId: "1019400233086",
+            appId: "1:1019400233086:web:4e8f1d24a96a20184ff82f",
+            measurementId: "G-ECY1SJ8EXN"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+</body>
+
+</html>
