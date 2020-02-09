@@ -55,6 +55,44 @@ function startNewDay(){
     showToast('new day started');
 }
 
+function inputPlayerName(){
+    var input = document.getElementById("name").value;
+    var inputHeight = document.getElementById("height").value;
+    var inputWeight = document.getElementById("weight").value;
+    var inputNumber = document.getElementById("number").value;
+  
+    db.collection("Players").doc(input).set({
+        day: {
+            date: null,
+            picksP: 0,
+            picksM: 0,
+            competitiveP: 0,
+            competitiveM: 0,
+            divingP: 0,
+            divingM: 0,
+            groundP: 0,
+            groundM: 0,
+            throwingP: 0,
+            throwingM: 0,
+            fieldingP: 0,
+            fieldingM:0,
+            awarenessP: 0,
+            AwarenessM: 0,
+            Weight: inputWeight,
+            Height: inputHeight,
+            Number: inputNumber,
+            Position: 0
+        }
+    });
+  
+    $('.addPlayers').fadeOut();
+    document.body.style.overflow = 'scroll';
+  
+    //show player added toast
+    showToast('player added');
+ }
+ 
+
 function loadStats(){
     console.log('poop');
 }
