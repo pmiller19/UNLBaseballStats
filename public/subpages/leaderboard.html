@@ -83,6 +83,150 @@
       <div class="row"></div>
     </div>
 
+       <!-- Modal -->
+       <div id="myModal" class="modal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+              <p>Picks</p>
+              <div class="buttons">
+                <button
+                  class="button plus"
+                  id="picksP"
+                  onclick="statButtonPress(this)"
+                >
+                  +
+                </button>
+                <button
+                  class="button minus"
+                  id="picksM"
+                  onclick="statButtonPress(this)"
+                >
+                  -
+                </button>
+              </div>
+              <p>Awareness</p>
+              <div class="buttons">
+                <button
+                  class="button plus"
+                  id="awarenessP"
+                  onclick="statButtonPress(this)"
+                >
+                  +
+                </button>
+                <button
+                  class="button minus"
+                  id="awarenessM"
+                  onclick="statButtonPress(this)"
+                >
+                  -
+                </button>
+              </div>
+              <p>Competitive</p>
+              <div class="buttons">
+                <button
+                  class="button plus"
+                  id="competitiveP"
+                  onclick="statButtonPress(this)"
+                >
+                  +
+                </button>
+                <button
+                  class="button minus"
+                  id="competitiveM"
+                  onclick="statButtonPress(this)"
+                >
+                  -
+                </button>
+              </div>
+              <p>Diving</p>
+              <div class="buttons">
+                <button
+                  class="button plus"
+                  id="divingP"
+                  onclick="statButtonPress(this)"
+                >
+                  +
+                </button>
+                <button
+                  class="button minus"
+                  id="divingM"
+                  onclick="statButtonPress(this)"
+                >
+                  -
+                </button>
+              </div>
+              <p>Left on Ground</p>
+              <div class="buttons">
+                <button
+                  class="button plus"
+                  id="groundP"
+                  onclick="statButtonPress(this)"
+                >
+                  +
+                </button>
+                <button
+                  class="button minus"
+                  id="groundM"
+                  onclick="statButtonPress(this)"
+                >
+                  -
+                </button>
+              </div>
+              <p>Throwing</p>
+              <div class="buttons">
+                <button
+                  class="button plus"
+                  id="throwingP"
+                  onclick="statButtonPress(this)"
+                >
+                  +
+                </button>
+                <button
+                  class="button minus"
+                  id="throwingM"
+                  onclick="statButtonPress(this)"
+                >
+                  -
+                </button>
+              </div>
+              <p>Fielding</p>
+              <div class="buttons">
+                <button
+                  class="button plus"
+                  id="fieldingP"
+                  onclick="statButtonPress(this)"
+                >
+                  +
+                </button>
+                <button
+                  class="button minus"
+                  id="fieldingM"
+                  onclick="statButtonPress(this)"
+                >
+                  -
+                </button>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-default dismiss-button"
+                data-dismiss="modal"
+                onclick="confirmPressed()"
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <!--Bootstrap stuff-->
