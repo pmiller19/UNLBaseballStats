@@ -23,7 +23,7 @@
     />
 
     <!--our styles-->
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="../index.css" />
 
     <!--jQuery stuff-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -35,12 +35,12 @@
   </head>
 
   <body>
-    <a href="index.html">
+    <a href="../index.html">
       <div class="heading">
         <img
           id="imagesunl-logo"
           class="heading-child"
-          src="unlLogo2.jpg"
+          src="../unlLogo2.jpg"
           width="55"
           height="55"
           alt="logo"
@@ -49,29 +49,8 @@
       </div>
     </a>
 
-    <div class="loadingScreen">
-      <div class="button-container">
-        <a href="subpages/takestats.html">
-          <button class="load-button">
-            Take Stats
-          </button>
-        </a>
-        <a href="subpages/leaderboard.html"
-          ><button class="load-button" onclick="populateLeaderboard()">
-            View Leaderboards
-          </button></a
-        >
-        <a href="subpages/manageplayers.html">
-          <button class="load-button">
-            Manage Players
-          </button></a
-        >
-        <p class="egoLogo">Powered by the Managers</p>
-      </div>
-    </div>
-
     <!--our script-->
-    <script src="index.js"></script>
+    <script src="../index.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
@@ -113,7 +92,5 @@
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
     </script>
-
-    <script></script>
   </body>
 </html>

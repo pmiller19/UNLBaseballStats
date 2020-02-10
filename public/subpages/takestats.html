@@ -22,10 +22,6 @@
       crossorigin="anonymous"
     />
 
-    <!--our styles-->
-    <link rel="stylesheet" href="../index.css" />
-    <link rel="stylesheet" href="stats.css" />
-
     <!--jQuery stuff-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -33,20 +29,35 @@
 
     <!---jquery CDN-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!--our styles-->
+    <link rel="stylesheet" href="../index.css" />
+
+    <style>
+      .content {
+        margin-top: 20px;
+      }
+      .player-card {
+        height: 73px;
+        padding-top: 18px;
+      }
+    </style>
   </head>
 
   <body>
-    <div class="heading">
-      <img
-        id="../imagesunl-logo"
-        class="heading-child"
-        src="../images/unlLogo2.jpg"
-        width="55"
-        height="55"
-        alt="logo"
-      />
-      <p class="heading-child">Baseball</p>
-    </div>
+    <a href="../index.html">
+      <div class="heading">
+        <img
+          id="../imagesunl-logo"
+          class="heading-child"
+          src="../unlLogo2.jpg"
+          width="55"
+          height="55"
+          alt="logo"
+        />
+        <p class="heading-child">Baseball</p>
+      </div>
+    </a>
 
     <div class="toastContainer">
       <div class="toastPop">
@@ -146,7 +157,7 @@
                 <button
                   class="button minus"
                   id="picksM"
-                  onclick="statButtonPress(this.id)"
+                  onclick="statButtonPress(this)"
                 >
                   -
                 </button>
@@ -238,10 +249,18 @@
               </div>
               <p>Fielding</p>
               <div class="buttons">
-                <button class="button plus" id="fieldingP">
+                <button
+                  class="button plus"
+                  id="fieldingP"
+                  onclick="statButtonPress(this)"
+                >
                   +
                 </button>
-                <button class="button minus" id="fieldingM">
+                <button
+                  class="button minus"
+                  id="fieldingM"
+                  onclick="statButtonPress(this)"
+                >
                   -
                 </button>
               </div>
@@ -252,6 +271,7 @@
                 type="button"
                 class="btn btn-default dismiss-button"
                 data-dismiss="modal"
+                onclick="confirmPressed()"
               >
                 Confirm
               </button>
@@ -261,7 +281,10 @@
       </div>
     </div>
 
-    <script src="testStat.js"></script>
+    <!--our script-->
+    <script src="../index.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <!--Bootstrap stuff-->
     <!-- Optional JavaScript -->

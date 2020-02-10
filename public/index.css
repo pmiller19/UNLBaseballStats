@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #dfdfdf;
+  background-color: rgb(48, 47, 47);
   font-family: "Raleway", sans-serif;
 }
 button {
@@ -22,6 +22,7 @@ button {
 
 .content {
   margin: 0px 8px 0px 8px;
+  margin-top: 100px;
 }
 
 /*player cards */
@@ -35,7 +36,7 @@ button {
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
   text-align: center;
-  padding-top: 23px;
+  padding-top: 18px;
   font-size: 18px;
 }
 /*end of player cards*/
@@ -44,7 +45,8 @@ button {
 .heading {
   background-color: rgb(48, 47, 47);
   padding: 10px;
-  margin-bottom: -5px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgb(68, 67, 67);
 }
 
 .heading-child {
@@ -95,7 +97,7 @@ button {
 
 .toastContainer {
   position: fixed;
-  bottom: 0;
+  top: 20px;
   left: 0;
   width: 100%;
   text-align: center;

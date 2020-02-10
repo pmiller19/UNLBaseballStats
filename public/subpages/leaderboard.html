@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+    <!-- Required meta tags poops-->
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -25,6 +25,36 @@
     <!--our styles-->
     <link rel="stylesheet" href="../index.css" />
 
+    <style>
+      .playerCard {
+        width: 45%;
+        margin: 8px auto;
+        background-color: red;
+        text-align: center;
+        border-radius: 5px;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+          0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        background-color: rgb(68, 67, 67);
+        padding: 10px;
+      }
+      .row {
+        text-align: center;
+      }
+      .player-name {
+        color: white;
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+      .player-position {
+        color: rgb(190, 0, 0);
+        font-size: 18px;
+      }
+      .player-success {
+        color: rgb(190, 0, 0);
+        font-size: 18px;
+      }
+    </style>
+
     <!--jQuery stuff-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -34,50 +64,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
 
-  <body>
-    <div class="heading">
-      <img
-        id="../imagesunl-logo"
-        class="heading-child"
-        src="../images/unlLogo2.jpg"
-        width="55"
-        height="55"
-        alt="logo"
-      />
-      <p class="heading-child">Baseball</p>
-    </div>
-
-    <div class="addPlayers">
-      <div class="button-container">
-        <p class="egoLogo">Input Player Names</p>
-        <br />
-        <input type="text" name="firstname" id="name" /><br />
-        <p><br /></p>
-        <p class="egoLogo">Input Player Height</p>
-        <br />
-        <input type="text" name="height" id="height" /><br />
-        <p><br /></p>
-        <p class="egoLogo">Input Player Weight</p>
-        <br />
-        <input type="text" name="weight" id="weight" /><br />
-        <p><br /></p>
-        <p class="egoLogo">Input Player Number</p>
-        <br />
-        <input type="text" name="number" id="number" /><br />
-        <p><br /></p>
-        <button onclick="inputPlayerName()" class="load-button">Submit</button>
+  <body onload="populateLeaderboard()">
+    <a href="../index.html">
+      <div class="heading">
+        <img
+          id="../imagesunl-logo"
+          class="heading-child"
+          src="../unlLogo2.jpg"
+          width="55"
+          height="55"
+          alt="logo"
+        />
+        <p class="heading-child">Baseball</p>
       </div>
+    </a>
+
+    <div class="container">
+      <div class="row"></div>
     </div>
 
-    <div class="toastContainer">
-      <div class="toastPop">
-        <p id="toastText">poop</p>
-      </div>
-    </div>
-
-    <!--our styles-->
-    <script src="manage.js"></script>
-    <script src="../index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <!--Bootstrap stuff-->
     <!-- Optional JavaScript -->
@@ -92,6 +98,9 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
+
+    <!--our script-->
+    <script src="../index.js"></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
@@ -116,6 +125,34 @@
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
+    </script>
+
+    <script>
+      function populateLeaderboard() {
+        for (var i = 0; i < 4; i++) {
+          let row = document.querySelector(".row");
+          var card = document.createElement("div");
+          card.className = "playerCard";
+
+          var name = document.createElement("h1");
+          name.className = "player-name";
+          name.textContent = "Spencer Schwellenbach";
+
+          var position = document.createElement("h3");
+          position.className = "player-position";
+          position.textContent = "Shortstop";
+
+          var success = document.createElement("h3");
+          success.className = "player-success";
+          success.textContent = "Success: " + "96" + "%";
+
+          card.appendChild(name);
+          card.appendChild(position);
+          card.appendChild(success);
+
+          row.appendChild(card);
+        }
+      }
     </script>
   </body>
 </html>
