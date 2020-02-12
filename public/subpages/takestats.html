@@ -41,12 +41,15 @@
         height: 73px;
         padding-top: 18px;
       }
+      .heading-date {
+        margin-left: 110px;
+      }
     </style>
   </head>
 
   <body>
-    <a href="../index.html">
-      <div class="heading">
+    <div class="heading">
+      <a href="../index.html">
         <img
           id="../imagesunl-logo"
           class="heading-child"
@@ -55,9 +58,11 @@
           height="55"
           alt="logo"
         />
+
         <p class="heading-child">Baseball</p>
-      </div>
-    </a>
+      </a>
+      <p class="heading-child heading-date">Date</p>
+    </div>
 
     <div class="toastContainer">
       <div class="toastPop">
@@ -66,7 +71,8 @@
     </div>
 
     <div class="content">
-      <div
+      <!--Example card in HTML
+        <div
         class="player-card"
         id="Boynton"
         data-toggle="modal"
@@ -75,66 +81,7 @@
       >
         <p>Boynton</p>
       </div>
-
-      <div
-        class="player-card"
-        id="Rosebury"
-        data-toggle="modal"
-        data-target="#myModal"
-        onclick="cardPressed(this)"
-      >
-        <p>Rosebury</p>
-      </div>
-
-      <div
-        class="player-card"
-        id="Chick"
-        data-toggle="modal"
-        data-target="#myModal"
-        onclick="cardPressed(this)"
-      >
-        <p>Chick</p>
-      </div>
-
-      <div
-        class="player-card"
-        id="Gillin"
-        data-toggle="modal"
-        data-target="#myModal"
-        onclick="cardPressed(this)"
-      >
-        <p>Gillin</p>
-      </div>
-
-      <div
-        class="player-card"
-        id="Hallmark"
-        data-toggle="modal"
-        data-target="#myModal"
-        onclick="cardPressed(this)"
-      >
-        <p>Hallmark</p>
-      </div>
-
-      <div
-        class="player-card"
-        id="Schwelly"
-        data-toggle="modal"
-        data-target="#myModal"
-        onclick="cardPressed(this)"
-      >
-        <p>Schwellenbach</p>
-      </div>
-
-      <div
-        class="player-card"
-        id="Banjoff"
-        data-toggle="modal"
-        data-target="#myModal"
-        onclick="cardPressed(this)"
-      >
-        <p>Banjoff</p>
-      </div>
+    -->
 
       <!-- Modal -->
       <div id="myModal" class="modal" role="dialog">
@@ -144,7 +91,10 @@
             <div class="modal-header">
               <h4 class="modal-title">Modal Header</h4>
             </div>
+
             <div class="modal-body">
+              <!---->
+
               <p>Picks</p>
               <div class="buttons">
                 <button
@@ -156,12 +106,15 @@
                 </button>
                 <button
                   class="button minus"
-                  id="picksM"
+                  id="picksN"
                   onclick="statButtonPress(this)"
                 >
                   -
                 </button>
               </div>
+
+              <!---->
+
               <p>Awareness</p>
               <div class="buttons">
                 <button
@@ -173,12 +126,15 @@
                 </button>
                 <button
                   class="button minus"
-                  id="awarenessM"
+                  id="awarenessN"
                   onclick="statButtonPress(this)"
                 >
                   -
                 </button>
               </div>
+
+              <!---->
+
               <p>Competitive</p>
               <div class="buttons">
                 <button
@@ -190,12 +146,15 @@
                 </button>
                 <button
                   class="button minus"
-                  id="competitiveM"
+                  id="competitiveN"
                   onclick="statButtonPress(this)"
                 >
                   -
                 </button>
               </div>
+
+              <!---->
+
               <p>Diving</p>
               <div class="buttons">
                 <button
@@ -207,12 +166,15 @@
                 </button>
                 <button
                   class="button minus"
-                  id="divingM"
+                  id="divingN"
                   onclick="statButtonPress(this)"
                 >
                   -
                 </button>
               </div>
+
+              <!---->
+
               <p>Left on Ground</p>
               <div class="buttons">
                 <button
@@ -224,12 +186,15 @@
                 </button>
                 <button
                   class="button minus"
-                  id="groundM"
+                  id="groundN"
                   onclick="statButtonPress(this)"
                 >
                   -
                 </button>
               </div>
+
+              <!---->
+
               <p>Throwing</p>
               <div class="buttons">
                 <button
@@ -241,12 +206,15 @@
                 </button>
                 <button
                   class="button minus"
-                  id="throwingM"
+                  id="throwingN"
                   onclick="statButtonPress(this)"
                 >
                   -
                 </button>
               </div>
+
+              <!---->
+
               <p>Fielding</p>
               <div class="buttons">
                 <button
@@ -258,18 +226,31 @@
                 </button>
                 <button
                   class="button minus"
-                  id="fieldingM"
+                  id="fieldingN"
                   onclick="statButtonPress(this)"
                 >
                   -
                 </button>
               </div>
+
+              <!---->
             </div>
+            <!--end of modal content-->
 
             <div class="modal-footer">
               <button
                 type="button"
                 class="btn btn-default dismiss-button"
+                id="stat-x-button"
+                data-dismiss="modal"
+              >
+                Exit
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-default dismiss-button"
+                id="confirm-button"
                 data-dismiss="modal"
                 onclick="confirmPressed()"
               >
@@ -277,6 +258,7 @@
               </button>
             </div>
           </div>
+          <!--end of entire modal-->
         </div>
       </div>
     </div>
@@ -323,6 +305,159 @@
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
+    </script>
+
+    <script>
+      var condensedDate;
+
+      //make player buttons data driven
+      document.addEventListener("DOMContentLoaded", event => {
+        const dateLabel = document.querySelector(".heading-date");
+
+        var d = new Date();
+        var dateString =
+          d.getMonth() + 1 + "-" + d.getDate() + "-" + d.getFullYear();
+
+        condensedDate = d.getMonth() + 1 + "" + d.getDate() + d.getFullYear();
+        var makeNewDay = true;
+
+        dateLabel.textContent = dateString;
+        const app = firebase.app();
+        const db = firebase.firestore();
+
+        //for every play in the array, do this:
+        for (var i = 0; i < play.length; i++) {
+          data = doc.data()[condensedDate][play[i]];
+
+          let fieldUpdate = "day." + play[i];
+
+          docRef.update({
+            [`${condensedDate}.${play[i]}`]: data + 1
+          });
+
+          db.collection("Players")
+            .get()
+            .then(function(querySnapshot) {
+              querySnapshot.forEach(function(doc) {
+                // get the value of the isVisible variable for each person in the database
+                doc.data().isVisible;
+              });
+            })
+            .catch(function(error) {
+              console.log("Error getting documents: ", error);
+            });
+        }
+
+        db.collection("Players")
+          .get()
+          .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+              makeNewDay = true;
+
+              //get the data
+              console.log(doc.id, " => ", doc.data());
+              var data = doc.data();
+
+              //buid the leaderboards page
+              buildPlayerButton(doc.id);
+
+              for (var playerDates in data) {
+                if (playerDates == condensedDate) {
+                  makeNewDay = false;
+                }
+              }
+
+              console.log(makeNewDay);
+
+              if (makeNewDay) {
+                //make a new day in the firebase
+
+                db.collection("Players")
+                  .doc(doc.id)
+                  .update({
+                    [condensedDate]: {
+                      date: dateString,
+                      picksP: 0,
+                      picksN: 0,
+                      competitiveP: 0,
+                      competitiveN: 0,
+                      divingP: 0,
+                      divingN: 0,
+                      groundP: 0,
+                      groundN: 0,
+                      throwingP: 0,
+                      throwingN: 0,
+                      fieldingP: 0,
+                      fieldingN: 0,
+                      awarenessP: 0,
+                      awarenessN: 0
+                    }
+                  });
+              }
+
+              //DO NOT DELETE
+              // for (var key in data) {
+              //   let innerObject = data[key];
+              //   for (var innerData in innerObject) {
+              //     console.log(innerData, innerObject[innerData]);
+              //   }
+              // }
+            }); //end of the snapshot
+          })
+          .catch(function(error) {
+            console.log("Error getting documents: ", error);
+          }); //end of query
+      }); //end of dom loaded listener
+
+      function buildPlayerButton(playerName) {
+        //build the card
+        let playerCardButton = document.createElement("div");
+        playerCardButton.className = "player-card";
+        playerCardButton.id = playerName;
+
+        playerCardButton.setAttribute("data-toggle", "modal");
+        playerCardButton.setAttribute("data-target", "#myModal");
+        playerCardButton.setAttribute("onclick", "cardPressed(this)");
+
+        var nameLabel = document.createElement("p");
+        nameLabel.textContent = playerName;
+
+        playerCardButton.appendChild(nameLabel);
+
+        //add it to screen
+        let screen = document.querySelector(".content");
+        screen.appendChild(playerCardButton);
+      }
+
+      function confirmPressed() {
+        showToast(name + " " + play + " " + type);
+
+        //get current value
+
+        changeDatabaseVal();
+      }
+
+      function changeDatabaseVal() {
+        var data = 1;
+
+        var docRef = db.collection("Players").doc(name);
+        docRef
+          .get()
+          .then(function(doc) {
+            if (doc.exists) {
+              //get the current value
+              //FIXME multiple days don't work
+
+              console.log("updated", data);
+            } else {
+              // doc.data() will be undefined in this case
+              console.log("No such document!");
+            }
+          })
+          .catch(function(error) {
+            console.log("Error getting document:", error);
+          });
+      }
     </script>
   </body>
 </html>

@@ -10,16 +10,18 @@ let playerList = [
   "Gillin",
   "Rosebury",
   "Hallmark",
-  "Banjoff"
+  "Banjoff",
+  "Scum"
 ];
 
 let db;
 
 //global probably bad practice
 let name = "";
-let play = "";
+let play = [];
 let type = "";
 let num = "";
+let dateNumber;
 
 /**
  * Firebase database stuff
@@ -28,15 +30,18 @@ let num = "";
 document.addEventListener("DOMContentLoaded", event => {
   //get rid of the loading page
 
-  document.body.style.overflow = "scroll";
-
   var d = new Date();
+  dateNumber = d.getMonth() + 1 + "-" + d.getDate() + "-" + d.getFullYear();
+
+  document.body.style.overflow = "scroll";
 
   let app = firebase.app();
   db = firebase.firestore();
-  let date = d.getMonth() + 1 + "-" + d.getDate() + "-" + d.getFullYear();
 
-  populateDatabase(date);
+  //only run this if you want to clear out the entire database
+  console.log("-------------");
+  populateDatabase(dateNumber);
+  console.log("formatted");
 }); //ends the on document load
 
 //function to update database
@@ -96,6 +101,12 @@ function inputPlayerName() {
   showToast("player added");
 }
 
+document.addEventListener("DOMContentLoaded", event => {
+  // var d = new Date();
+  // var dateString = d.getMonth() + 1 + "-" + d.getDate() + "-" + d.getFullYear();
+  // populateDatabase(dateString);
+});
+
 function loadStats() {
   console.log("poop");
 }
@@ -107,50 +118,11 @@ function cardPressed(namePressed) {
 }
 
 function statButtonPress(clicked) {
-  play = clicked.id;
-  modalTitle.textContent = name + " " + play + " " + type;
-}
-
-function confirmPressed() {
-  showToast(name + " " + play + " " + type);
-
-  //get current value
-
-  changeDatabaseVal();
-}
-
-function changeDatabaseVal() {
-  var data = 1;
-
-  var docRef = db.collection("Players").doc(name);
-  docRef
-    .get()
-    .then(function(doc) {
-      if (doc.exists) {
-        //get the current value
-        data = doc.data().day[play];
-
-        let fieldUpdate = "day." + play;
-
-        console.log(fieldUpdate);
-
-        console.log(fieldUpdate);
-
-        console.log(play, data);
-
-        docRef.update({
-          [`day.${play}`]: data + 1
-        });
-
-        console.log("updated", data);
-      } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-      }
-    })
-    .catch(function(error) {
-      console.log("Error getting document:", error);
-    });
+  play.unshift(clicked.id);
+  //build modal top
+  //mod
+  //modalTitle.textContent = name + " " + play + " " + type;
+  modalTitle.textContent = modalTitle.textContent + ", " + play[0];
 }
 
 function showToast(string) {
@@ -165,31 +137,62 @@ function showToast(string) {
   }, 1000);
 }
 
-function populateDatabase(date) {
-  for (var i = 0; i < 7; i++) {
+function populateDatabase(dateString) {
+  for (var i = 0; i < playerList.length; i++) {
     db.collection("Players")
       .doc(playerList[i])
       .set({
-        day: {
-          date: date,
+        isVisible: true,
+        292020: {
+          date: dateString,
           picksP: 0,
-          picksM: 0,
+          picksN: 0,
           competitiveP: 0,
-          competitiveM: 0,
+          competitiveN: 0,
           divingP: 0,
-          divingM: 0,
+          divingN: 0,
           groundP: 0,
-          groundM: 0,
+          groundN: 0,
           throwingP: 0,
-          throwingM: 0,
+          throwingN: 0,
           fieldingP: 0,
-          fieldingM: 0,
+          fieldingN: 0,
           awarenessP: 0,
-          AwarenessM: 0,
-          Weight: 275,
-          Height: "6'4",
-          Number: 10000,
-          Position: 0
+          awarenessN: 0
+        },
+        2102020: {
+          date: dateString,
+          picksP: 0,
+          picksN: 0,
+          competitiveP: 0,
+          competitiveN: 0,
+          divingP: 0,
+          divingN: 0,
+          groundP: 0,
+          groundN: 0,
+          throwingP: 0,
+          throwingN: 0,
+          fieldingP: 0,
+          fieldingN: 0,
+          awarenessP: 0,
+          awarenessN: 0
+        },
+        2112020: {
+          date: dateString,
+          picksP: 0,
+          picksN: 0,
+          competitiveP: 0,
+          competitiveN: 0,
+          divingP: 0,
+          divingN: 0,
+          groundP: 0,
+          groundN: 0,
+          throwingP: 0,
+          throwingN: 0,
+          fieldingP: 0,
+          fieldingN: 0,
+          awarenessP: 0,
+          awarenessN: 0
         }
       });
   }

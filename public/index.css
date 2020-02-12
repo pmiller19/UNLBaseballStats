@@ -83,7 +83,15 @@ button {
   text-align: left;
 }
 .dismiss-button {
-  width: 100%;
+  display: inline-block;
+}
+#stat-x-button {
+  width: 20%;
+  background-color: rgb(228, 64, 64);
+}
+#confirm-button {
+  width: 75%;
+  background-color: rgb(83, 192, 83);
 }
 
 /*toast*/
