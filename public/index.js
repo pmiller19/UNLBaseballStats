@@ -17,7 +17,6 @@ let playerList = [
 let db;
 
 //global probably bad practice
-let name = "";
 let type = "";
 let num = "";
 let dateNumber;
@@ -105,12 +104,6 @@ document.addEventListener("DOMContentLoaded", event => {
   // var dateString = d.getMonth() + 1 + "-" + d.getDate() + "-" + d.getFullYear();
   // populateDatabase(dateString);
 });
-
-function cardPressed(namePressed) {
-  name = namePressed.id;
-  modalTitle.textContent = name;
-  console.log("pressed");
-}
 
 function showToast(string) {
   //set the toast text

@@ -310,6 +310,8 @@
     <script>
       var play = [];
       var condensedDate;
+      var modalPlayerName;
+      var name = "";
 
       //make player buttons data driven
       document.addEventListener("DOMContentLoaded", event => {
@@ -410,10 +412,45 @@
           }); //end of query
       }); //end of dom loaded listener
 
-      function statButtonPress(clicked) {
-        play.unshift(clicked.id);
+      function cardPressed(namePressed) {
+        play = [];
+        name = namePressed.id;
+        modalTitle.textContent = name;
+        console.log("pressed");
+      }
 
-        modalTitle.textContent = modalTitle.textContent + ", " + play[0];
+      function statButtonPress(clicked) {
+        //search the array if there is one that matches
+        modalTitle.textContent = "";
+        removed = false;
+        var titleString = "";
+
+        //remove it if it's already in the array
+        for (var i = 0; i < play.length; i++) {
+          //if it's in there, remove it
+          if (play[i] == clicked.id) {
+            play.splice(i, 1);
+            removed = true;
+          }
+        }
+
+        if (!removed) {
+          play.unshift(clicked.id);
+        }
+
+        for (i in play) {
+          if (play[i] == clicked.id) {
+            console.log(play);
+          }
+        }
+
+        //build the string to print
+        for (var i = 0; i < play.length; i++) {
+          titleString = titleString + ", " + play[i];
+        }
+
+        //loop through the array and build the title FIXME:
+        modalTitle.textContent = name + titleString;
       }
 
       function buildPlayerButton(playerName) {
@@ -440,12 +477,11 @@
         showToast(name + " " + play + " " + type);
 
         //get current value
-
         changeDatabaseVal();
       }
 
       function changeDatabaseVal() {
-        var data = 1;
+        var data;
 
         var docRef = db.collection("Players").doc(name);
         docRef
@@ -455,7 +491,41 @@
               //get the current value
               //FIXME multiple days don't work
 
+              //loop through the array of plays
+              //for every play in the array, do this:
+
+              console.log(play);
+
+              for (var i = 0; i < play.length; i++) {
+                data = doc.data()[condensedDate][play[i]];
+                console.log(("stuff: ", data));
+
+                let fieldUpdate = "day." + play[i];
+
+                docRef.update({
+                  [`${condensedDate}.${play[i]}`]: data + 1
+                });
+
+                console.log("after loop");
+
+                // db.collection("Players")
+                //   .get()
+                //   .then(function(querySnapshot) {
+                //     querySnapshot.forEach(function(doc) {
+                //       // get the value of the isVisible variable for each person in the database
+                //       doc.data().isVisible;
+                //     });
+                //   })
+                //   .catch(function(error) {
+                //     console.log("Error getting documents: ", error);
+                //   });
+              }
+              //update each play in the array
+
               console.log("updated", data);
+
+              //clear out the array for the next time around
+              play = [];
             } else {
               // doc.data() will be undefined in this case
               console.log("No such document!");
