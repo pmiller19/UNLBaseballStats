@@ -18,7 +18,6 @@ let db;
 
 //global probably bad practice
 let name = "";
-let play = [];
 let type = "";
 let num = "";
 let dateNumber;
@@ -107,22 +106,10 @@ document.addEventListener("DOMContentLoaded", event => {
   // populateDatabase(dateString);
 });
 
-function loadStats() {
-  console.log("poop");
-}
-
 function cardPressed(namePressed) {
   name = namePressed.id;
   modalTitle.textContent = name;
   console.log("pressed");
-}
-
-function statButtonPress(clicked) {
-  play.unshift(clicked.id);
-  //build modal top
-  //mod
-  //modalTitle.textContent = name + " " + play + " " + type;
-  modalTitle.textContent = modalTitle.textContent + ", " + play[0];
 }
 
 function showToast(string) {
@@ -137,63 +124,63 @@ function showToast(string) {
   }, 1000);
 }
 
-function populateDatabase(dateString) {
-  for (var i = 0; i < playerList.length; i++) {
-    db.collection("Players")
-      .doc(playerList[i])
-      .set({
-        isVisible: true,
-        292020: {
-          date: dateString,
-          picksP: 0,
-          picksN: 0,
-          competitiveP: 0,
-          competitiveN: 0,
-          divingP: 0,
-          divingN: 0,
-          groundP: 0,
-          groundN: 0,
-          throwingP: 0,
-          throwingN: 0,
-          fieldingP: 0,
-          fieldingN: 0,
-          awarenessP: 0,
-          awarenessN: 0
-        },
-        2102020: {
-          date: dateString,
-          picksP: 0,
-          picksN: 0,
-          competitiveP: 0,
-          competitiveN: 0,
-          divingP: 0,
-          divingN: 0,
-          groundP: 0,
-          groundN: 0,
-          throwingP: 0,
-          throwingN: 0,
-          fieldingP: 0,
-          fieldingN: 0,
-          awarenessP: 0,
-          awarenessN: 0
-        },
-        2112020: {
-          date: dateString,
-          picksP: 0,
-          picksN: 0,
-          competitiveP: 0,
-          competitiveN: 0,
-          divingP: 0,
-          divingN: 0,
-          groundP: 0,
-          groundN: 0,
-          throwingP: 0,
-          throwingN: 0,
-          fieldingP: 0,
-          fieldingN: 0,
-          awarenessP: 0,
-          awarenessN: 0
-        }
-      });
-  }
-} //end of populate database
+// function populateDatabase(dateString) {
+//   for (var i = 0; i < playerList.length; i++) {
+//     db.collection("Players")
+//       .doc(playerList[i])
+//       .set({
+//         isVisible: true,
+//         292020: {
+//           date: dateString,
+//           picksP: 0,
+//           picksN: 0,
+//           competitiveP: 0,
+//           competitiveN: 0,
+//           divingP: 0,
+//           divingN: 0,
+//           groundP: 0,
+//           groundN: 0,
+//           throwingP: 0,
+//           throwingN: 0,
+//           fieldingP: 0,
+//           fieldingN: 0,
+//           awarenessP: 0,
+//           awarenessN: 0
+//         },
+//         2102020: {
+//           date: dateString,
+//           picksP: 0,
+//           picksN: 0,
+//           competitiveP: 0,
+//           competitiveN: 0,
+//           divingP: 0,
+//           divingN: 0,
+//           groundP: 0,
+//           groundN: 0,
+//           throwingP: 0,
+//           throwingN: 0,
+//           fieldingP: 0,
+//           fieldingN: 0,
+//           awarenessP: 0,
+//           awarenessN: 0
+//         },
+//         2112020: {
+//           date: dateString,
+//           picksP: 0,
+//           picksN: 0,
+//           competitiveP: 0,
+//           competitiveN: 0,
+//           divingP: 0,
+//           divingN: 0,
+//           groundP: 0,
+//           groundN: 0,
+//           throwingP: 0,
+//           throwingN: 0,
+//           fieldingP: 0,
+//           fieldingN: 0,
+//           awarenessP: 0,
+//           awarenessN: 0
+//         }
+//       });
+//   }
+// } //end of populate database

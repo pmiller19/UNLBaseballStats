@@ -295,10 +295,6 @@
         console.log(db.collection("Players"));
         // players = db.ref("Players");
         
-        
-
-       let players = db.collection('Players').get();
-        
        db.collection("Players")
          .get()
          .then(function(querySnapshot) {

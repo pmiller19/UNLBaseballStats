@@ -308,6 +308,7 @@
     </script>
 
     <script>
+      var play = [];
       var condensedDate;
 
       //make player buttons data driven
@@ -408,6 +409,12 @@
             console.log("Error getting documents: ", error);
           }); //end of query
       }); //end of dom loaded listener
+
+      function statButtonPress(clicked) {
+        play.unshift(clicked.id);
+
+        modalTitle.textContent = modalTitle.textContent + ", " + play[0];
+      }
 
       function buildPlayerButton(playerName) {
         //build the card
