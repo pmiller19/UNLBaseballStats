@@ -39,9 +39,9 @@ document.addEventListener("DOMContentLoaded", event => {
   db = firebase.firestore();
 
   //only run this if you want to clear out the entire database
-  console.log("-------------");
-  populateDatabase(dateNumber);
-  console.log("formatted");
+  // console.log("-------------");
+  // populateDatabase(dateNumber);
+  // console.log("formatted");
 }); //ends the on document load
 
 //function to update database
