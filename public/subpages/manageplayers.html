@@ -286,42 +286,32 @@
       firebase.analytics();
     </script>
 
-    <!-- change boolena value if clicked-->
     <script>
+      // change boolean value if clicked
       function visible(namePressed) {
         let app = firebase.app();
         let db = firebase.firestore();
-
-        console.log(db.collection("Players"));
-        // players = db.ref("Players");
-        
-        
-
-       let players = db.collection('Players').get();
-        
-       db.collection("Players")
-         .get()
+      
+        // loop through all of the players and change the boolean value
+        db.collection("Players")
+          .get()
          .then(function(querySnapshot) {
           querySnapshot.forEach(function(doc) {
            if (doc.id == namePressed.id) {
               if (doc.data().isVisible == true) {
                db.collection('Players').doc(namePressed.id).update({
                 isVisible: false,
-               });
+               }); // closes function to change boolean value
               } else {
                 db.collection('Players').doc(namePressed.id).update({
                 isVisible: true,
-               });
+               }); // closes function to change boolean value
               }
-           }
-          });
-          
-        });
+           } // closes if statement to find the player that was clicked
+          }); // closes function to look through each player
+        }); // closes querySnapchat function
         console.log(db);
       }
-
-
-
     </script>
 </body>
 
