@@ -135,8 +135,7 @@ button {
 
 .load-button {
   width: 80%;
-  background-color: rgb(66, 65, 65);
-  color: white;
+  background-color: white;
   border-radius: 5px;
   margin: 10px;
   padding: 20px 10px;
