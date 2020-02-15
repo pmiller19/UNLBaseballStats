@@ -14,6 +14,8 @@ let playerList = [
   "Scum"
 ];
 
+let playerPositions = [5, 6, 3, 6, 3, 4, 5, 10];
+
 let db;
 
 //global probably bad practice
@@ -118,46 +120,19 @@ function showToast(string) {
 }
 
 // function populateDatabase(dateString) {
+//   alert(
+//     "Are you sure you want to reset the entire database? \n If not, exit the window."
+//   );
+//   var d = new Date();
+//   var shortDate = d.getMonth() + 1 + "" + d.getDate() + d.getFullYear();
+
 //   for (var i = 0; i < playerList.length; i++) {
 //     db.collection("Players")
 //       .doc(playerList[i])
 //       .set({
+//         position: playerPositions[i],
 //         isVisible: true,
-//         292020: {
-//           date: dateString,
-//           picksP: 0,
-//           picksN: 0,
-//           competitiveP: 0,
-//           competitiveN: 0,
-//           divingP: 0,
-//           divingN: 0,
-//           groundP: 0,
-//           groundN: 0,
-//           throwingP: 0,
-//           throwingN: 0,
-//           fieldingP: 0,
-//           fieldingN: 0,
-//           awarenessP: 0,
-//           awarenessN: 0
-//         },
-//         2102020: {
-//           date: dateString,
-//           picksP: 0,
-//           picksN: 0,
-//           competitiveP: 0,
-//           competitiveN: 0,
-//           divingP: 0,
-//           divingN: 0,
-//           groundP: 0,
-//           groundN: 0,
-//           throwingP: 0,
-//           throwingN: 0,
-//           fieldingP: 0,
-//           fieldingN: 0,
-//           awarenessP: 0,
-//           awarenessN: 0
-//         },
-//         2112020: {
+//         [shortDate]: {
 //           date: dateString,
 //           picksP: 0,
 //           picksN: 0,

@@ -1,435 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags poops-->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-<head>
-  <!-- Required meta tags poops-->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:700|Titillium+Web&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway:700|Titillium+Web&display=swap" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <!--our styles-->
+    <link rel="stylesheet" href="../index.css" />
 
-  <!--our styles-->
-  <link rel="stylesheet" href="../index.css" />
+    <style>
+      .heading {
+        margin-bottom: 0px;
+      }
 
-  <style>
-    hr {
-      border: 0;
-      border-top: 1px solid white;
-    }
+      .playerCard {
+        width: 45%;
+        margin: 8px auto;
+        background-color: red;
+        text-align: center;
+        border-radius: 5px;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+          0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        background-color: white;
+        padding: 10px;
+      }
 
-    .playerCard {
-      width: 45%;
-      margin: 8px auto;
-      background-color: red;
-      text-align: center;
-      border-radius: 5px;
-      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-        0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-      background-color: white;
-      padding: 10px;
-    }
+      /* heading info for the back button*/
+      .heading-back {
+        text-align: right;
+        padding-right: 25px;
+        display: block;
+        float: right;
+        margin-top: 13px;
+        color: white;
+      }
 
-    /* heading info for the back button*/
-    .heading-back {
-      text-align: right;
-      padding-right: 25px;
-      display: block;
-      float: right;
-      margin-top: 13px;
-      color: white;
-    }
+      .row {
+        text-align: center;
+      }
 
-    .row {
-      text-align: center;
-    }
+      .player-name {
+        color: rgb(68, 67, 67);
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
 
-    .player-name {
-      color: rgb(68, 67, 67);
-      font-size: 20px;
-      margin-bottom: 15px;
-    }
+      .player-position {
+        color: rgb(190, 0, 0);
+        font-size: 18px;
+      }
 
-    .player-position {
-      color: rgb(190, 0, 0);
-      font-size: 18px;
-    }
+      .player-success {
+        color: rgb(190, 0, 0);
+        font-size: 18px;
+      }
 
-    .player-success {
-      color: rgb(190, 0, 0);
-      font-size: 18px;
-    }
+      .col-sm {
+        width: 48%;
+        margin-bottom: 8px;
+      }
 
-    .col-sm {
-      width: 48%;
-      margin-bottom: 8px;
-    }
+      .myModal {
+        display: none;
+        position: absolute;
+        top: 80px;
+      }
 
-    .myModal {
-      display: none;
-      position: absolute;
-      top: 80px;
-    }
+      .unl-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(68, 67, 67);
+        color: white;
+        font-size: 40px;
+        text-align: center;
+        display: none;
+        z-index: 9999999999;
+      }
 
-    .unl-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgb(68, 67, 67);
-      color: white;
-      font-size: 40px;
-      text-align: center;
-      display: none;
-      z-index: 9999999999;
-    }
+      .loading-text {
+        margin: 300px 0px 0px 0px;
+      }
 
-    .loading-text {
-      margin: 300px 0px 0px 0px;
-    }
-  </style>
+      /*styles for the scatter chart*/
+      .chartTitle {
+        color: white;
+        font-size: 30px;
+        padding: 20px;
+      }
+      .scatterContainer {
+        border-radius: 5px;
+      }
+      #scatterChart {
+        height: 100px;
+      }
+    </style>
 
-  <!--jQuery stuff-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--jQuery stuff-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  <title>UNL Baseball</title>
+    <title>UNL Baseball</title>
 
-  <!---jquery CDN-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-</head>
+    <!---jquery CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
 
-<body>
-  <div class="heading">
-    <a href="../index.html">
-      <img id="../imagesunl-logo" class="heading-child" src="../unlLogo2.jpg" width="55" height="55" alt="logo" />
+  <body>
+    <div class="heading">
+      <a href="../index.html">
+        <img
+          id="../imagesunl-logo"
+          class="heading-child"
+          src="../unlLogo2.jpg"
+          width="55"
+          height="55"
+          alt="logo"
+        />
 
-      <p class="heading-child">Baseball</p>
+        <p class="heading-child">Baseball</p>
 
-      <!-- back button -->
-      <p class="heading-back">Back</p>
-    </a>
-  </div>
-
-  <div class="unl-overlay">
-    <h1 class="loading-text">Loading</h1>
-    <div class="spinner-grow" role="status">
-      <span class="sr-only">Loading...</span>
+        <!-- back button -->
+        <p class="heading-back">Back</p>
+      </a>
     </div>
-    <div class="spinner-grow" role="status">
-      <span class="sr-only">Loading...</span>
+
+    <div class="scatterContainer">
+      <h1 class="chartTitle">Last 7 Days</h1>
+      <canvas id="scatterChart"></canvas>
     </div>
-    <div class="spinner-grow" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div>
 
-  <div class="container">
-    <div class="row" id="bodyContent"></div>
-  </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-  <div id="myModal" class="modal" role="dialog">
-    <!--modal loading overlay-->
-    <div class="unl-overlay">
-      <h1 class="loading-text">Loading</h1>
-      <div class="spinner-grow" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-      <div class="spinner-grow" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-      <div class="spinner-grow" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
-    <!--actual modal body-->
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="leaderboard-modal-title">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-            style="box-shadow: none;"></button>
-        </div>
-        <div class="modal-body">
-          <!--use bootstrap grid-->
-          <div class="container">
-            <div class="row" id="statsRow"></div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+    <!--Bootstrap stuff-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
 
-  <!-- Modal -->
-  <div id="myModal" class="modal" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Picks</p>
-          <div class="buttons">
-            <button class="button plus" id="picksP" onclick="statButtonPress(this)">
-              +
-            </button>
-            <button class="button minus" id="picksM" onclick="statButtonPress(this)">
-              -
-            </button>
-          </div>
-          <p>Awareness</p>
-          <div class="buttons">
-            <button class="button plus" id="awarenessP" onclick="statButtonPress(this)">
-              +
-            </button>
-            <button class="button minus" id="awarenessM" onclick="statButtonPress(this)">
-              -
-            </button>
-          </div>
-          <p>Competitive</p>
-          <div class="buttons">
-            <button class="button plus" id="competitiveP" onclick="statButtonPress(this)">
-              +
-            </button>
-            <button class="button minus" id="competitiveM" onclick="statButtonPress(this)">
-              -
-            </button>
-          </div>
-          <p>Diving</p>
-          <div class="buttons">
-            <button class="button plus" id="divingP" onclick="statButtonPress(this)">
-              +
-            </button>
-            <button class="button minus" id="divingM" onclick="statButtonPress(this)">
-              -
-            </button>
-          </div>
-          <p>Left on Ground</p>
-          <div class="buttons">
-            <button class="button plus" id="groundP" onclick="statButtonPress(this)">
-              +
-            </button>
-            <button class="button minus" id="groundM" onclick="statButtonPress(this)">
-              -
-            </button>
-          </div>
-          <p>Throwing</p>
-          <div class="buttons">
-            <button class="button plus" id="throwingP" onclick="statButtonPress(this)">
-              +
-            </button>
-            <button class="button minus" id="throwingM" onclick="statButtonPress(this)">
-              -
-            </button>
-          </div>
-          <p>Fielding</p>
-          <div class="buttons">
-            <button class="button plus" id="fieldingP" onclick="statButtonPress(this)">
-              +
-            </button>
-            <button class="button minus" id="fieldingM" onclick="statButtonPress(this)">
-              -
-            </button>
-          </div>
-        </div>
+    <!--charts script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default dismiss-button" data-dismiss="modal" onclick="confirmPressed()">
-            Confirm
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+    <!--our script-->
+    <script src="../index.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
 
-  <!--Bootstrap stuff-->
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
-
-  <!--our script-->
-  <script src="../index.js"></script>
-
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
-
-  <!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
 
-  <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyCfloakG9hhQWjP36A4Jp3Y-I0guiq2ln0",
-      authDomain: "unlbaseballstats.firebaseapp.com",
-      databaseURL: "https://unlbaseballstats.firebaseio.com",
-      projectId: "unlbaseballstats",
-      storageBucket: "unlbaseballstats.appspot.com",
-      messagingSenderId: "1019400233086",
-      appId: "1:1019400233086:web:4e8f1d24a96a20184ff82f",
-      measurementId: "G-ECY1SJ8EXN"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-  </script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCfloakG9hhQWjP36A4Jp3Y-I0guiq2ln0",
+        authDomain: "unlbaseballstats.firebaseapp.com",
+        databaseURL: "https://unlbaseballstats.firebaseio.com",
+        projectId: "unlbaseballstats",
+        storageBucket: "unlbaseballstats.appspot.com",
+        messagingSenderId: "1019400233086",
+        appId: "1:1019400233086:web:4e8f1d24a96a20184ff82f",
+        measurementId: "G-ECY1SJ8EXN"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", event => {
-      //fade the page in
-      $(".unl-overlay").show();
+    <script>
+      document.addEventListener("DOMContentLoaded", event => {
+        //fade the page in
+        $(".unl-overlay").show();
 
-      populateStatPage();
+        setTimeout(() => {
+          $(".unl-overlay").fadeOut();
+        }, 1000);
 
-      setTimeout(() => {
-        $(".unl-overlay").fadeOut();
-      }, 1000);
-      //fade the loading page out
-    });
+        createTopChart();
+      });
 
-    function populateStatPage() {
-      $(".unl-overlay").show();
+      function createTopChart() {
+        var ctx = document.getElementById("scatterChart").getContext("2d");
 
-      const app = firebase.app();
-      const db = firebase.firestore();
-
-      //clear the page
-      let page = document.querySelector("#bodyContent");
-
-      page.innerHTML = "";
-
-      db.collection("Players")
-        .get()
-        .then(function (querySnapshot) {
-          querySnapshot.forEach(function (doc) {
-            // doc.data() is never undefined for query doc snapshots
-            //buid the leaderboards page
-            buildCard(doc.id);
-
-            console.log(doc.id, " => ", doc.data());
-          });
-        })
-        .catch(function (error) {
-          console.log("Error getting documents: ", error);
-        });
-
-      setTimeout(() => {
-        $(".unl-overlay").fadeOut();
-      }, 1000);
-    }
-
-    function buildCard(cardName) {
-      let row = document.querySelector(".row");
-      var card = document.createElement("div");
-      card.className = "playerCard";
-
-      var name = document.createElement("h1");
-      name.className = "player-name";
-      name.textContent = cardName;
-
-      var success = document.createElement("h3");
-      success.className = "player-success";
-      success.textContent = "Success: " + "96" + "%";
-
-      card.setAttribute("data-toggle", "modal");
-      card.setAttribute("data-target", "#myModal");
-      card.setAttribute("onclick", "updateModal(this)");
-
-      card.appendChild(name);
-      card.appendChild(success);
-
-      row.appendChild(card);
-    }
-
-    $("#myModal").on("hide.bs.modal", function (e) {
-      populateStatPage();
-    });
-
-    function updateModal(clickedCard) {
-      $(".unl-overlay").show();
-      var data;
-
-      let labelRow = document.querySelector("#statsRow");
-      labelRow.innerHTML = "";
-
-      let cardPlayerName = clickedCard.querySelector(".player-name")
-        .textContent;
-
-      let titleModal = document.querySelector(".leaderboard-modal-title");
-      titleModal.textContent = cardPlayerName;
-
-      db.collection("Players")
-        .doc(cardPlayerName)
-        .get()
-        .then(function (doc) {
-          if (doc.exists) {
-            console.log(cardPlayerName);
-
-            data = doc.data();
-
-            //FIXME has to be a dynamic date...
-            let day = data[2112020];
-
-            for (key in day) {
-              //build the modal as long as the key does not equal date
-              if (!(key == "date")) {
-                //create div
-                let textDiv = document.createElement("div");
-                textDiv.className = "col-sm";
-
-                let label = key;
-                let labelVal = day[key];
-                let textString = label + ": " + labelVal;
-
-                textDiv.textContent = textString;
-
-                labelRow.appendChild(textDiv);
-
-                console.log(textDiv);
-
-                console.log(key, ": ", day[key]);
+        var scatterChart = new Chart(ctx, {
+          type: "scatter",
+          data: {
+            datasets: [
+              {
+                label: "Scatter Dataset",
+                data: [
+                  {
+                    x: new Date(),
+                    y: 0
+                  },
+                  {
+                    x: new Date(),
+                    y: 10
+                  },
+                  {
+                    x: new Date(),
+                    y: 5
+                  }
+                ]
               }
-            }
-          } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
+            ]
+          },
+          options: {
+            scales: {
+              xAxes: [
+                {
+                  gridLines: {
+                    display: false
+                  },
+                  ticks: {
+                    userCallback: function(label, index, labels) {
+                      return moment(label).format("DD/MM/YY");
+                    },
+                    font: "#CCC"
+                  }
+                }
+              ],
+              yAxes: [
+                {
+                  gridLines: {
+                    display: false
+                  },
+                  ticks: {
+                    fontColor: "#CCC" // this here
+                  }
+                }
+              ]
+            },
+            legend: {
+              position: "bottom"
+            },
+            maintainAspectRatio: false
           }
-        })
-        .catch(function (error) {
-          console.log("Error getting document:", error);
         });
-
-      setTimeout(() => {
-        $(".unl-overlay").fadeOut();
-      }, 1000);
-
-      //DO NOT DELETE
-      // for (var key in data) {
-      //   let innerObject = data[key];
-      //   for (var innerData in innerObject) {
-      //     console.log(innerData, innerObject[innerData]);
-      //   }
-      // }
-    }
-  </script>
-</body>
-
+      }
+    </script>
+  </body>
 </html>
