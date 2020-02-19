@@ -1,272 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags poops-->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
 
-    <!-- fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway:700|Titillium+Web&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <!-- Required meta tags poops-->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:700|Titillium+Web&display=swap" rel="stylesheet" />
 
-    <!--our styles-->
-    <link rel="stylesheet" href="../index.css" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
 
-    <style>
-      .heading {
-        margin-bottom: 0px;
-      }
+  <!--our styles-->
+  <link rel="stylesheet" href="../index.css" />
 
-      .playerCard {
-        width: 45%;
-        margin: 8px auto;
-        background-color: red;
-        text-align: center;
-        border-radius: 5px;
-        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-          0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-        background-color: white;
-        padding: 10px;
-      }
+  <style>
+    .heading {
+      margin-bottom: 0px;
+    }
 
-      /* heading info for the back button*/
-      .heading-back {
-        text-align: right;
-        padding-right: 25px;
-        display: block;
-        float: right;
-        margin-top: 13px;
-        color: white;
-      }
+    .playerCard {
+      width: 45%;
+      margin: 8px auto;
+      background-color: red;
+      text-align: center;
+      border-radius: 5px;
+      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+        0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      background-color: white;
+      padding: 10px;
+    }
 
-      .row {
-        text-align: center;
-      }
+    /* heading info for the back button*/
+    .heading-back {
+      text-align: right;
+      padding-right: 25px;
+      display: block;
+      float: right;
+      margin-top: 13px;
+      color: white;
+    }
 
-      .player-name {
-        color: rgb(68, 67, 67);
-        font-size: 20px;
-        margin-bottom: 15px;
-      }
+    .row {
+      text-align: center;
+    }
 
-      .player-position {
-        color: rgb(190, 0, 0);
-        font-size: 18px;
-      }
+    .player-name {
+      color: rgb(68, 67, 67);
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
 
-      .player-success {
-        color: rgb(190, 0, 0);
-        font-size: 18px;
-      }
+    .player-position {
+      color: rgb(190, 0, 0);
+      font-size: 18px;
+    }
 
-      .col-sm {
-        width: 48%;
-        margin-bottom: 8px;
-      }
+    .player-success {
+      color: rgb(190, 0, 0);
+      font-size: 18px;
+    }
 
-      .myModal {
-        display: none;
-        position: absolute;
-        top: 80px;
-      }
+    .col-sm {
+      width: 48%;
+      margin-bottom: 8px;
+    }
 
-      .unl-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgb(68, 67, 67);
-        color: white;
-        font-size: 40px;
-        text-align: center;
-        display: none;
-        z-index: 9999999999;
-      }
+    .myModal {
+      display: none;
+      position: absolute;
+      top: 80px;
+    }
 
-      .loading-text {
-        margin: 300px 0px 0px 0px;
-      }
+    .unl-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(68, 67, 67);
+      color: white;
+      font-size: 40px;
+      text-align: center;
+      display: none;
+      z-index: 9999999999;
+    }
 
-      /*styles for the scatter chart*/
-      .chartTitle {
-        color: white;
-        font-size: 30px;
-        padding: 20px;
-      }
-      .scatterContainer {
-        border-radius: 5px;
-      }
-      #scatterChart {
-        height: 100px;
-      }
-    </style>
+    .loading-text {
+      margin: 300px 0px 0px 0px;
+    }
 
-    <!--jQuery stuff-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    /*styles for the scatter chart*/
+    .chartTitle {
+      color: white;
+      font-size: 30px;
+      padding: 20px;
+    }
 
-    <title>UNL Baseball</title>
+    .scatterContainer {
+      border-radius: 5px;
+    }
 
-    <!---jquery CDN-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  </head>
+    #scatterChart {
+      height: 200px !important;
+    }
 
-  <body>
-    <div class="heading">
-      <a href="../index.html">
-        <img
-          id="../imagesunl-logo"
-          class="heading-child"
-          src="../unlLogo2.jpg"
-          width="55"
-          height="55"
-          alt="logo"
-        />
+    /*footer player cards*/
 
-        <p class="heading-child">Baseball</p>
+    .footerCards {
+      overflow: auto;
+      white-space: nowrap;
+      margin-top: 20px;
+    }
 
-        <!-- back button -->
-        <p class="heading-back">Back</p>
-      </a>
+    .playerStatCard {
+      height: 100px;
+      width: 100px;
+      border-radius: 5px;
+      background-color: white;
+      margin: 10px 10px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .playerName {
+      font-size: 12px;
+    }
+  </style>
+
+  <!--jQuery stuff-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <title>UNL Baseball</title>
+
+  <!---jquery CDN-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="heading">
+    <a href="../index.html">
+      <img id="../imagesunl-logo" class="heading-child" src="../unlLogo2.jpg" width="55" height="55" alt="logo" />
+
+      <p class="heading-child">Baseball</p>
+
+      <!-- back button -->
+      <p class="heading-back">Back</p>
+    </a>
+  </div>
+
+  <div class="scatterContainer">
+    <h1 class="chartTitle">Last 7 Days (Fielding Positives)</h1>
+    <canvas id="scatterChart" height="200px"></canvas>
+  </div>
+
+
+  <div class="footerCards">
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <div class="scatterContainer">
-      <h1 class="chartTitle">Last 7 Days</h1>
-      <canvas id="scatterChart"></canvas>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </div>
 
-    <!--Bootstrap stuff-->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-    <!--charts script-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <!--Bootstrap stuff-->
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
 
-    <!--our script-->
-    <script src="../index.js"></script>
+  <!--charts script-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+  <!--our script-->
+  <script src="../index.js"></script>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
 
-    <script>
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyCfloakG9hhQWjP36A4Jp3Y-I0guiq2ln0",
-        authDomain: "unlbaseballstats.firebaseapp.com",
-        databaseURL: "https://unlbaseballstats.firebaseio.com",
-        projectId: "unlbaseballstats",
-        storageBucket: "unlbaseballstats.appspot.com",
-        messagingSenderId: "1019400233086",
-        appId: "1:1019400233086:web:4e8f1d24a96a20184ff82f",
-        measurementId: "G-ECY1SJ8EXN"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
-    </script>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCfloakG9hhQWjP36A4Jp3Y-I0guiq2ln0",
+      authDomain: "unlbaseballstats.firebaseapp.com",
+      databaseURL: "https://unlbaseballstats.firebaseio.com",
+      projectId: "unlbaseballstats",
+      storageBucket: "unlbaseballstats.appspot.com",
+      messagingSenderId: "1019400233086",
+      appId: "1:1019400233086:web:4e8f1d24a96a20184ff82f",
+      measurementId: "G-ECY1SJ8EXN"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", event => {
-        //fade the page in
-        $(".unl-overlay").show();
+  <script>
+    let topChart = document.getElementById('scatterChart');
+    let colors = [
+      "#F6E8E8",
+      "#5E0000",
+      "#F4CC07",
+      "#00F200",
+      "#044AEA",
+      "#00E5E5",
+      "#BB01E9",
+      "#ffffff"
+    ];
 
-        setTimeout(() => {
-          $(".unl-overlay").fadeOut();
-        }, 1000);
 
-        createTopChart();
-      });
 
-      function createTopChart() {
-        var ctx = document.getElementById("scatterChart").getContext("2d");
 
-        var scatterChart = new Chart(ctx, {
-          type: "scatter",
-          data: {
-            datasets: [
-              {
-                label: "Scatter Dataset",
-                data: [
-                  {
-                    x: new Date(),
-                    y: 0
-                  },
-                  {
-                    x: new Date(),
-                    y: 10
-                  },
-                  {
-                    x: new Date(),
-                    y: 5
-                  }
-                ]
+    document.addEventListener("DOMContentLoaded", event => {
+      //fade the page in
+      $(".unl-overlay").show();
+
+      setTimeout(() => {
+        $(".unl-overlay").fadeOut();
+      }, 1000);
+
+      loopThroughPlayerData();
+
+    });
+
+    function buildModal(name) {
+      let modalTitle = document.querySelector('exampleModalLabel');
+
+      console.log('poop');
+
+    }
+
+    function buildCards(name, data) {
+      //get the row
+      let cardRow = document.querySelector('.footerCards');
+
+      //build the card and the label
+      let playerCard = document.createElement('div');
+      let playerNameLabel = document.createElement('h1');
+
+      //set the classes for the name and label
+      playerCard.className = 'playerStatCard';
+      playerNameLabel.className = 'playerName';
+      playerNameLabel.textContent = name;
+
+      playerCard.appendChild(playerNameLabel);
+
+      //set the modal attributes
+      //data-toggle="modal" data-target="#exampleModal"
+      playerCard.setAttribute("data-toggle", "modal");
+      playerCard.setAttribute("data-target", "#exampleModal");
+      playerCard.setAttribute("onClick", "buildModal(name)");
+
+
+      //add it
+      cardRow.appendChild(playerCard);
+    }
+
+
+    function loopThroughPlayerData() {
+      let xCounter = 0;
+
+      var datasetCollection = [];
+      var singleDataset = {};
+
+      var singlePlayerData = [];
+
+      db.collection("Players").where("isVisible", "==", true)
+        .get()
+        .then(function (querySnapshot) {
+          querySnapshot.forEach(function (doc) {
+            // doc.data() is never undefined for query doc snapshots
+            let name = doc.id;
+            let data = doc.data();
+
+            buildCards(name, data);
+
+            var forCounter = 0;
+
+            console.log(data);
+
+            for (var x in data) {
+              if (x != "isVisible" && x != "position") {
+                let yPoint = data[x].fieldingP;
+
+
+                //make x / y JSON
+                if (yPoint > 0) {
+                  var singlePoint = { x: forCounter, y: yPoint }
+
+                  //add that one point to the data array
+                  singlePlayerData.push(singlePoint);
+                }
+
+                singlePoint = {};
+                forCounter++;
+
               }
-            ]
-          },
-          options: {
-            scales: {
-              xAxes: [
-                {
-                  gridLines: {
-                    display: false
-                  },
-                  ticks: {
-                    userCallback: function(label, index, labels) {
-                      return moment(label).format("DD/MM/YY");
-                    },
-                    font: "#CCC"
-                  }
-                }
-              ],
-              yAxes: [
-                {
-                  gridLines: {
-                    display: false
-                  },
-                  ticks: {
-                    fontColor: "#CCC" // this here
-                  }
-                }
-              ]
-            },
-            legend: {
-              position: "bottom"
-            },
-            maintainAspectRatio: false
-          }
+            }
+
+            forCounter = 0;
+            //put it into json
+            //(singlePlayerData);
+            singleDataset = {
+              label: `${name}`,
+              data: singlePlayerData,
+              pointBackgroundColor: colors[xCounter],
+              pointBorderColor: colors[xCounter],
+              backgroundColor: colors[xCounter],
+              hoverBorderColor: colors[xCounter]
+            }
+            //console.log(singlePlayerData);
+
+
+            //add it to the array
+            datasetCollection.push(singleDataset);
+
+            //clear it out for the next round
+            singleDataset = {};
+            singlePlayerData = [];
+            name = "";
+            xCounter++;
+
+          });
+
+          buildTopChart(datasetCollection);
+          return datasetCollection;
+        })
+        .catch(function (error) {
+          console.log("Error getting documents: ", error);
         });
-      }
-    </script>
-  </body>
+    }
+
+
+    //build the scatter chart
+    function buildTopChart(datasetCollection) {
+      Chart.defaults.global.legend.labels.usePointStyle = true;
+      var scatterChart = new Chart(topChart, {
+        type: 'scatter',
+        data: {
+          datasets: datasetCollection
+        },
+        options: {
+
+          scales: {
+            xAxes: [{
+              type: 'linear',
+              position: 'bottom',
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                fontColor: "#CCC" // this here
+              }
+            }],
+            yAxes: [{
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                fontColor: "#CCC" // this here
+              }
+            }]
+          },
+          legend: {
+            position: "bottom"
+          },
+          maintainAspectRatio: false
+        }
+      });
+    }
+
+
+
+  </script>
+</body>
+
 </html>
