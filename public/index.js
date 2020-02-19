@@ -2,6 +2,7 @@ let modalTitle = document.querySelector(".modal-title");
 let tPlus = document.getElementById("throwing-plus");
 let confirmNote = document.querySelector(".modal-text");
 let toastBody = document.querySelector(".toast");
+var d = new Date();
 
 let playerList = [
   "Chick",
@@ -68,11 +69,17 @@ function inputPlayerName() {
   var inputWeight = document.getElementById("weight").value;
   var inputNumber = document.getElementById("number").value;
 
+  let year = d.getYear();
+  let day = d.getDate();
+  let month = d.getMonth() + 1;
+
   db.collection("Players")
     .doc(input)
     .set({
       day: {
-        date: null,
+        year: year,
+        month: month,
+        date: day,
         picksP: 0,
         picksM: 0,
         competitiveP: 0,
@@ -89,8 +96,7 @@ function inputPlayerName() {
         AwarenessM: 0,
         Weight: inputWeight,
         Height: inputHeight,
-        Number: inputNumber,
-        Position: 0
+        Number: inputNumber
       }
     });
 
@@ -119,36 +125,42 @@ function showToast(string) {
   }, 1000);
 }
 
-// function populateDatabase(dateString) {
-//   alert(
-//     "Are you sure you want to reset the entire database? \n If not, exit the window."
-//   );
-//   var d = new Date();
-//   var shortDate = d.getMonth() + 1 + "" + d.getDate() + d.getFullYear();
+function populateDatabase(dateString) {
+  alert(
+    "Are you sure you want to reset the entire database? \n If not, exit the window."
+  );
+  condensedDate = d.getMonth() + 1 + "" + d.getDate() + d.getFullYear();
+  let year = d.getYear();
+  let day = d.getDate();
+  let month = d.getMonth() + 1;
+  console.log("month: ", day);
+  //var shortDate = d.getMonth() + 1 + "" + d.getDate() + d.getFullYear();
 
-//   for (var i = 0; i < playerList.length; i++) {
-//     db.collection("Players")
-//       .doc(playerList[i])
-//       .set({
-//         position: playerPositions[i],
-//         isVisible: true,
-//         [shortDate]: {
-//           date: dateString,
-//           picksP: 0,
-//           picksN: 0,
-//           competitiveP: 0,
-//           competitiveN: 0,
-//           divingP: 0,
-//           divingN: 0,
-//           groundP: 0,
-//           groundN: 0,
-//           throwingP: 0,
-//           throwingN: 0,
-//           fieldingP: 0,
-//           fieldingN: 0,
-//           awarenessP: 0,
-//           awarenessN: 0
-//         }
-//       });
-//   }
-// } //end of populate database
+  for (var i = 0; i < playerList.length; i++) {
+    db.collection("Players")
+      .doc(playerList[i])
+      .set({
+        // position: playerPositions[i],
+        // isVisible: true,
+        // [22020]: {
+        //   year: 2020,
+        //   month: 2,
+        //   day: 11,
+        //   picksP: 0,
+        //   picksN: 0,
+        //   competitiveP: 0,
+        //   competitiveN: 0,
+        //   divingP: 0,
+        //   divingN: 0,
+        //   groundP: 0,
+        //   groundN: 0,
+        //   throwingP: 0,
+        //   throwingN: 0,
+        //   fieldingP: 0,
+        //   fieldingN: 0,
+        //   awarenessP: 0,
+        //   awarenessN: 0
+        // }
+      });
+  }
+} //end of populate database

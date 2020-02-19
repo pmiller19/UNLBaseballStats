@@ -58,6 +58,7 @@
       font-size: 18px;
       color: green;
     }
+
     /*end of player cards*/
 
     /*heading styles*/
@@ -142,19 +143,12 @@
 <body>
   <div class="heading">
     <a href="../index.html">
-      <img 
-      id="../imagesunl-logo" 
-      class="heading-child" 
-      src="../unlLogo2.jpg" 
-      width="55" height="55" 
-      alt="logo" 
-      />
+      <img id="../imagesunl-logo" class="heading-child" src="../unlLogo2.jpg" width="55" height="55" alt="logo" />
 
       <p class="heading-child">Baseball</p>
 
       <!-- back button -->
       <p class="heading-back">Back</p>
-      <p> penis</p>
     </a>
   </div>
 
@@ -170,35 +164,19 @@
   </div>
   <div class="content">
 
-    <div 
-    class="player-card" 
-    id="Boynton" 
-    onclick="visible(this)"
-    >
+    <div class="player-card" id="Boynton" onclick="visible(this)">
       <p class="minus-names">- Boynton (Click to remove)</p>
     </div>
 
-    <div 
-    class="player-card" 
-    id="Rosebury" 
-    onclick="visible(this)"
-    >
+    <div class="player-card" id="Rosebury" onclick="visible(this)">
       <p class="minus-names">- Rosebury (Click to remove)</p>
     </div>
 
-    <div 
-    class="player-card" 
-    id="Chick"  
-    onclick="visible(this)"
-    >
+    <div class="player-card" id="Chick" onclick="visible(this)">
       <p class="minus-names">- Chick (Click to remove)</p>
     </div>
 
-    <div 
-    class="player-card" 
-    id="Gillin" 
-    onclick="visible(this)"
-    >
+    <div class="player-card" id="Gillin" onclick="visible(this)">
       <p class="minus-names">- Gillin (Click to remove)</p>
     </div>
 
@@ -207,29 +185,17 @@
       <p>Hidden Players</p>
     </div>
 
-    <div 
-    class="player-card" 
-    id="Hallmark" 
-    onclick="visible(this)"
-    >
+    <div class="player-card" id="Hallmark" onclick="visible(this)">
       <p class="plus-names">+ Hallmark (Click to add)</p>
     </div>
 
-    <div 
-    class="player-card" 
-    id="Schwellenbach" 
-    onclick="visible(this)"
-    >
+    <div class="player-card" id="Schwellenbach" onclick="visible(this)">
       <p class="plus-names">+ Schwellenbach (Click to add)</p>
 
 
     </div>
 
-    <div 
-    class="player-card" 
-    id="Banjoff" 
-    onclick="visible(this)"
-    >
+    <div class="player-card" id="Banjoff" onclick="visible(this)">
       <p class="plus-names">+ Banjoff (Click to add)</p>
 
     </div>
@@ -277,25 +243,25 @@
       function visible(namePressed) {
         let app = firebase.app();
         let db = firebase.firestore();
-      
+
         // loop through all of the players and change the boolean value
         db.collection("Players")
           .get()
-         .then(function(querySnapshot) {
-          querySnapshot.forEach(function(doc) {
-           if (doc.id == namePressed.id) {
-              if (doc.data().isVisible == true) {
-               db.collection('Players').doc(namePressed.id).update({
-                isVisible: false,
-               }); // closes function to change boolean value
-              } else {
-                db.collection('Players').doc(namePressed.id).update({
-                isVisible: true,
-               }); // closes function to change boolean value
-              }
-           } // closes if statement to find the player that was clicked
-          }); // closes function to look through each player
-        }); // closes querySnapchat function
+          .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+              if (doc.id == namePressed.id) {
+                if (doc.data().isVisible == true) {
+                  db.collection('Players').doc(namePressed.id).update({
+                    isVisible: false,
+                  }); // closes function to change boolean value
+                } else {
+                  db.collection('Players').doc(namePressed.id).update({
+                    isVisible: true,
+                  }); // closes function to change boolean value
+                }
+              } // closes if statement to find the player that was clicked
+            }); // closes function to look through each player
+          }); // closes querySnapchat function
         console.log(db);
       }
     </script>
