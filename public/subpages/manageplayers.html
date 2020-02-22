@@ -1,212 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags poops-->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
 
-    <!-- fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway:700|Titillium+Web&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <!-- Required meta tags poops-->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:700|Titillium+Web&display=swap" rel="stylesheet" />
 
-    <!--our styles-->
-    <link rel="stylesheet" href="../index.css" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
 
-    <!--jQuery stuff-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!--our styles-->
+  <link rel="stylesheet" href="../index.css" />
 
-    <title>UNL Baseball</title>
+  <!--jQuery stuff-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <!---jquery CDN-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <title>UNL Baseball</title>
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
+  <!---jquery CDN-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-      body {
-        background-color: #dfdfdf;
-        font-family: "Raleway", sans-serif;
-      }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
 
-      .content {
-        margin: 0px 8px 0px 8px;
-      }
+    body {
+      background-color: #dfdfdf;
+      font-family: "Raleway", sans-serif;
+    }
 
-      /*player cards */
-      .player-card {
-        background-color: white;
-        height: 85px;
-        border-radius: 5px;
-        margin: 8px 0px 8px 0px;
-        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-          0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    .content {
+      margin: 0px 8px 0px 8px;
+    }
 
-        text-align: left;
-        padding-left: 25px;
-        padding-top: 23px;
-        font-size: 18px;
-      }
+    /*player cards */
+    .player-card {
+      background-color: white;
+      height: 85px;
+      border-radius: 5px;
+      margin: 8px 0px 8px 0px;
+      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+        0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
-      .plus-names {
-        font-size: 18px;
-        color: green;
-      }
+      text-align: left;
+      padding-left: 25px;
+      padding-top: 23px;
+      font-size: 18px;
+    }
 
-      /*end of player cards*/
+    .plus-names {
+      font-size: 18px;
+      color: green;
+    }
 
-      /*heading styles*/
-      .heading {
-        background-color: rgb(48, 47, 47);
-        padding: 10px;
-        margin-bottom: -5px;
-      }
+    /*end of player cards*/
 
-      .heading-child {
-        display: inline;
-        color: white;
-      }
+    /*heading styles*/
+    .heading {
+      background-color: rgb(48, 47, 47);
+      padding: 10px;
+      margin-bottom: -5px;
+    }
 
-      /* heading info for the back button*/
-      .heading-back {
-        text-align: right;
-        padding-right: 25px;
-        display: block;
-        float: right;
-        margin-top: 13px;
-        color: white;
-      }
+    .heading-child {
+      display: inline;
+      color: white;
+    }
 
-      /*modal*/
-      #myModal {
-        margin-top: 20px;
-      }
+    /* heading info for the back button*/
+    .heading-back {
+      text-align: right;
+      padding-right: 25px;
+      display: block;
+      float: right;
+      margin-top: 13px;
+      color: white;
+    }
 
-      .modal-footer {
-        text-align: left;
-      }
+    /*modal*/
+    #myModal {
+      margin-top: 20px;
+    }
 
-      .dismiss-button {
-        width: 100%;
-      }
+    .modal-footer {
+      text-align: left;
+    }
 
-      /*toast*/
-      .toastPop {
-        background-color: rgb(172, 230, 172);
-        border-radius: 5px;
-        margin: 0px 24px 20px 24px;
-        padding: 4px 20px 4px 20px;
-        text-align: center;
-      }
+    .dismiss-button {
+      width: 100%;
+    }
 
-      .toastContainer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        display: none;
-      }
+    /*toast*/
+    .toastPop {
+      background-color: rgb(172, 230, 172);
+      border-radius: 5px;
+      margin: 0px 24px 20px 24px;
+      padding: 4px 20px 4px 20px;
+      text-align: center;
+    }
 
-      /*loading screen*/
-      .loadingScreen {
-        padding-top: 100px;
-        position: fixed;
-        background-color: rgb(48, 47, 47);
-        width: 100%;
-        height: 100%;
-        display: block;
-        text-align: center;
-      }
+    .toastContainer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      display: none;
+    }
 
-      .load-button {
-        width: 80%;
-        background-color: rgb(66, 65, 65);
-        color: white;
-        border-radius: 5px;
-        margin: 10px;
-        padding: 20px 10px;
-      }
+    /*loading screen*/
+    .loadingScreen {
+      padding-top: 100px;
+      position: fixed;
+      background-color: rgb(48, 47, 47);
+      width: 100%;
+      height: 100%;
+      display: block;
+      text-align: center;
+    }
 
-      .egoLogo {
-        color: rgb(190, 0, 0);
-      }
-    </style>
-  </head>
+    .load-button {
+      width: 80%;
+      background-color: rgb(66, 65, 65);
+      color: white;
+      border-radius: 5px;
+      margin: 10px;
+      padding: 20px 10px;
+    }
 
-  <body>
-    <div class="heading">
-      <a href="../index.html">
-        <img
-          id="../imagesunl-logo"
-          class="heading-child"
-          src="../unlLogo2.jpg"
-          width="55"
-          height="55"
-          alt="logo"
-        />
+    .egoLogo {
+      color: rgb(190, 0, 0);
+    }
+  </style>
+</head>
 
-        <p class="heading-child">Baseball</p>
+<body>
+  <div class="heading">
+    <a href="../index.html">
+      <img id="../imagesunl-logo" class="heading-child" src="../unlLogo2.jpg" width="55" height="55" alt="logo" />
 
-        <!-- back button -->
-        <p class="heading-back">Back</p>
-      </a>
+      <p class="heading-child">Baseball</p>
+
+      <!-- back button -->
+      <p class="heading-back">Back</p>
+    </a>
+  </div>
+
+  <div class="toastContainer">
+    <div class="toastPop">
+      <p id="toastText">placeholder text</p>
+    </div>
+  </div>
+
+  <!-- players on stats page-->
+  <div class="content">
+    <p>Players On Stats Page</p>
+  </div>
+  <div class="content">
+
+    <div class="player-card" id="Boynton" onclick="visible(this)">
+      <p class="minus-names">- Boynton (Click to remove)</p>
     </div>
 
-    <div class="toastContainer">
-      <div class="toastPop">
-        <p id="toastText">placeholder text</p>
-      </div>
+    <div class="player-card" id="Rosebury" onclick="visible(this)">
+      <p class="minus-names">- Rosebury (Click to remove)</p>
     </div>
 
-    <!-- players on stats page-->
-    <div class="content">
-      <p>Players On Stats Page</p>
+    <div class="player-card" id="Chick" onclick="visible(this)">
+      <p class="minus-names">- Chick (Click to remove)</p>
     </div>
 
-    <div class="content" id="visiblePlayers"></div>
+    <div class="player-card" id="Gillin" onclick="visible(this)">
+      <p class="minus-names">- Gillin (Click to remove)</p>
+    </div>
 
     <!-- players not on stats page-->
     <div class="content">
       <p>Hidden Players</p>
     </div>
 
-    <div class="content" id="hiddenPlayers">
-      <!-- <div class="player-card" id="Hallmark" onclick="visible(this)">
-        <p class="plus-names">+ Hallmark (Click to add)</p>
-      </div> -->
+    <div class="player-card" id="Hallmark" onclick="visible(this)">
+      <p class="plus-names">+ Hallmark (Click to add)</p>
     </div>
+
+    <div class="player-card" id="Schwellenbach" onclick="visible(this)">
+      <p class="plus-names">+ Schwellenbach (Click to add)</p>
+
+
+    </div>
+
+    <div class="player-card" id="Banjoff" onclick="visible(this)">
+      <p class="plus-names">+ Banjoff (Click to add)</p>
+
+    </div>
+
 
     <script src="testStat.js"></script>
 
     <!--Bootstrap stuff-->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
@@ -234,89 +239,32 @@
     </script>
 
     <script>
-      let app = firebase.app();
-      let db = firebase.firestore();
-      window.addEventListener("DOMContentLoaded", () => {
-        updatePage();
-      });
-
       // change boolean value if clicked
       function visible(namePressed) {
+        let app = firebase.app();
+        let db = firebase.firestore();
+
         // loop through all of the players and change the boolean value
         db.collection("Players")
           .get()
-          .then(function(querySnapshot) {
-            querySnapshot.forEach(function(doc) {
+          .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
               if (doc.id == namePressed.id) {
                 if (doc.data().isVisible == true) {
-                  db.collection("Players")
-                    .doc(namePressed.id)
-                    .update({
-                      isVisible: false
-                    }); // closes function to change boolean value
-                  updatePage();
+                  db.collection('Players').doc(namePressed.id).update({
+                    isVisible: false,
+                  }); // closes function to change boolean value
                 } else {
-                  db.collection("Players")
-                    .doc(namePressed.id)
-                    .update({
-                      isVisible: true
-                    }); // closes function to change boolean value
-                  updatePage();
+                  db.collection('Players').doc(namePressed.id).update({
+                    isVisible: true,
+                  }); // closes function to change boolean value
                 }
               } // closes if statement to find the player that was clicked
             }); // closes function to look through each player
           }); // closes querySnapchat function
-
-        let visiblePlayersContainer = document.getElementById("visiblePlayers");
-        let hiddenPlayersContainer = document.getElementById("hiddenPlayers");
-
-        visiblePlayersContainer.innerHTML = "";
-        hiddenPlayersContainer.innerHTML = "";
-
         console.log(db);
       }
-
-      function updatePage() {
-        let visiblePlayersContainer = document.getElementById("visiblePlayers");
-        let hiddenPlayersContainer = document.getElementById("hiddenPlayers");
-
-        db.collection("Players")
-          .get()
-          .then(function(querySnapshot) {
-            querySnapshot.forEach(function(doc) {
-              if (doc.data().isVisible == true) {
-                console.log("true");
-                visiblePlayersContainer.appendChild(
-                  buildPlayerCard(doc.id, doc.data().isVisible)
-                );
-              } else {
-                hiddenPlayersContainer.appendChild(
-                  buildPlayerCard(doc.id, doc.data().isVisible)
-                );
-              }
-
-              // doc.data() is never undefined for query doc snapshots
-              console.log(doc.id, " => ", doc.data());
-            });
-          });
-      }
-
-      function buildPlayerCard(name, isShown) {
-        /* <div class="player-card" id="Boynton" onclick="visible(this)">
-         <p class="minus-names">- Boynton (Click to remove)</p>
-        </div>*/
-        let parentCard = document.createElement("div");
-
-        let cardText = document.createElement("p");
-        parentCard.classList.add("player-card");
-        parentCard.id = name;
-        parentCard.setAttribute("onclick", "visible(this)");
-
-        cardText.textContent = name;
-        parentCard.appendChild(cardText);
-
-        return parentCard;
-      }
     </script>
-  </body>
+</body>
+
 </html>
