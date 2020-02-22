@@ -1,71 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags poops-->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-<head>
-  <!-- Required meta tags poops-->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:700|Titillium+Web&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway:700|Titillium+Web&display=swap" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <!--jQuery stuff-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  <!--jQuery stuff-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>UNL Baseball</title>
 
-  <title>UNL Baseball</title>
+    <!---jquery CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  <!---jquery CDN-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--our styles-->
+    <link rel="stylesheet" href="../index.css" />
 
-  <!--our styles-->
-  <link rel="stylesheet" href="../index.css" />
+    <style>
+      .content {
+        margin-top: 20px;
+      }
 
-  <style>
-    .content {
-      margin-top: 20px;
-    }
+      /* heading info for the back button*/
+      .heading-back {
+        margin-left: 23px;
+        display: inline;
+        color: white;
+      }
 
-    /* heading info for the back button*/
-    .heading-back {
-      margin-left: 23px;
-      display: inline;
-      color: white;
-    }
+      .player-card {
+        height: 73px;
+        padding-top: 18px;
+      }
 
-    .player-card {
-      height: 73px;
-      padding-top: 18px;
-    }
+      .heading-date {
+        margin-left: 23px;
+      }
+    </style>
+  </head>
 
-    .heading-date {
-      margin-left: 23px;
-    }
-  </style>
-</head>
+  <body>
+    <div class="heading">
+      <a href="../index.html">
+        <img
+          id="../imagesunl-logo"
+          class="heading-child"
+          src="../unlLogo2.jpg"
+          width="55"
+          height="55"
+          alt="logo"
+        />
 
-<body>
-  <div class="heading">
-    <a href="../index.html">
-      <img id="../imagesunl-logo" class="heading-child" src="../unlLogo2.jpg" width="55" height="55" alt="logo" />
+        <p class="heading-child">Baseball</p>
+      </a>
 
-      <p class="heading-child">Baseball</p>
-    </a>
-
-    <p class="heading-child heading-date">Date</p>
-  </div>
-
-  <div class="toastContainer">
-    <div class="toastPop">
-      <p id="toastText">poop</p>
+      <p class="heading-child heading-date">Date</p>
     </div>
-  </div>
 
-  <div class="content">
-    <!--Example card in HTML
+    <div class="toastContainer">
+      <div class="toastPop">
+        <p id="toastText">poop</p>
+      </div>
+    </div>
+
+    <div class="content">
+      <!--Example card in HTML
         <div
         class="player-card"
         id="Boynton"
@@ -77,401 +93,470 @@
       </div>
     -->
 
-    <!-- Modal -->
-    <div id="myModal" class="modal" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Modal Header</h4>
+      <!-- Modal -->
+      <div id="myModal" class="modal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Modal Header</h4>
+            </div>
+
+            <div class="modal-body">
+              <!---->
+
+              <p>Picks</p>
+              <div class="buttons">
+                <button
+                  class="button plus"
+                  id="picksP"
+                  onclick="statButtonPress(this)"
+                >
+                  +
+                </button>
+                <button
+                  class="button minus"
+                  id="picksN"
+                  onclick="statButtonPress(this)"
+                >
+                  -
+                </button>
+              </div>
+
+              <!---->
+
+              <p>Awareness</p>
+              <div class="buttons">
+                <button
+                  class="button plus"
+                  id="awarenessP"
+                  onclick="statButtonPress(this)"
+                >
+                  +
+                </button>
+                <button
+                  class="button minus"
+                  id="awarenessN"
+                  onclick="statButtonPress(this)"
+                >
+                  -
+                </button>
+              </div>
+
+              <!---->
+
+              <p>Competitive</p>
+              <div class="buttons">
+                <button
+                  class="button plus"
+                  id="competitiveP"
+                  onclick="statButtonPress(this)"
+                >
+                  +
+                </button>
+                <button
+                  class="button minus"
+                  id="competitiveN"
+                  onclick="statButtonPress(this)"
+                >
+                  -
+                </button>
+              </div>
+
+              <!---->
+
+              <p>Diving</p>
+              <div class="buttons">
+                <button
+                  class="button plus"
+                  id="divingP"
+                  onclick="statButtonPress(this)"
+                >
+                  +
+                </button>
+                <button
+                  class="button minus"
+                  id="divingN"
+                  onclick="statButtonPress(this)"
+                >
+                  -
+                </button>
+              </div>
+
+              <!---->
+
+              <p>Left on Ground</p>
+              <div class="buttons">
+                <button
+                  class="button plus"
+                  id="groundP"
+                  onclick="statButtonPress(this)"
+                >
+                  +
+                </button>
+                <button
+                  class="button minus"
+                  id="groundN"
+                  onclick="statButtonPress(this)"
+                >
+                  -
+                </button>
+              </div>
+
+              <!---->
+
+              <p>Throwing</p>
+              <div class="buttons">
+                <button
+                  class="button plus"
+                  id="throwingP"
+                  onclick="statButtonPress(this)"
+                >
+                  +
+                </button>
+                <button
+                  class="button minus"
+                  id="throwingN"
+                  onclick="statButtonPress(this)"
+                >
+                  -
+                </button>
+              </div>
+
+              <!---->
+
+              <p>Fielding</p>
+              <div class="buttons">
+                <button
+                  class="button plus"
+                  id="fieldingP"
+                  onclick="statButtonPress(this)"
+                >
+                  +
+                </button>
+                <button
+                  class="button minus"
+                  id="fieldingN"
+                  onclick="statButtonPress(this)"
+                >
+                  -
+                </button>
+              </div>
+
+              <!---->
+            </div>
+            <!--end of modal content-->
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-default dismiss-button"
+                id="stat-x-button"
+                data-dismiss="modal"
+              >
+                Exit
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-default dismiss-button"
+                id="confirm-button"
+                data-dismiss="modal"
+                onclick="confirmPressed()"
+              >
+                Confirm
+              </button>
+            </div>
           </div>
-
-          <div class="modal-body">
-            <!---->
-
-            <p>Picks</p>
-            <div class="buttons">
-              <button class="button plus" id="picksP" onclick="statButtonPress(this)">
-                +
-              </button>
-              <button class="button minus" id="picksN" onclick="statButtonPress(this)">
-                -
-              </button>
-            </div>
-
-            <!---->
-
-            <p>Awareness</p>
-            <div class="buttons">
-              <button class="button plus" id="awarenessP" onclick="statButtonPress(this)">
-                +
-              </button>
-              <button class="button minus" id="awarenessN" onclick="statButtonPress(this)">
-                -
-              </button>
-            </div>
-
-            <!---->
-
-            <p>Competitive</p>
-            <div class="buttons">
-              <button class="button plus" id="competitiveP" onclick="statButtonPress(this)">
-                +
-              </button>
-              <button class="button minus" id="competitiveN" onclick="statButtonPress(this)">
-                -
-              </button>
-            </div>
-
-            <!---->
-
-            <p>Diving</p>
-            <div class="buttons">
-              <button class="button plus" id="divingP" onclick="statButtonPress(this)">
-                +
-              </button>
-              <button class="button minus" id="divingN" onclick="statButtonPress(this)">
-                -
-              </button>
-            </div>
-
-            <!---->
-
-            <p>Left on Ground</p>
-            <div class="buttons">
-              <button class="button plus" id="groundP" onclick="statButtonPress(this)">
-                +
-              </button>
-              <button class="button minus" id="groundN" onclick="statButtonPress(this)">
-                -
-              </button>
-            </div>
-
-            <!---->
-
-            <p>Throwing</p>
-            <div class="buttons">
-              <button class="button plus" id="throwingP" onclick="statButtonPress(this)">
-                +
-              </button>
-              <button class="button minus" id="throwingN" onclick="statButtonPress(this)">
-                -
-              </button>
-            </div>
-
-            <!---->
-
-            <p>Fielding</p>
-            <div class="buttons">
-              <button class="button plus" id="fieldingP" onclick="statButtonPress(this)">
-                +
-              </button>
-              <button class="button minus" id="fieldingN" onclick="statButtonPress(this)">
-                -
-              </button>
-            </div>
-
-            <!---->
-          </div>
-          <!--end of modal content-->
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default dismiss-button" id="stat-x-button" data-dismiss="modal">
-              Exit
-            </button>
-
-            <button type="button" class="btn btn-default dismiss-button" id="confirm-button" data-dismiss="modal"
-              onclick="confirmPressed()">
-              Confirm
-            </button>
-          </div>
+          <!--end of entire modal-->
         </div>
-        <!--end of entire modal-->
       </div>
     </div>
-  </div>
 
-  <!--our script-->
-  <script src="../index.js"></script>
+    <!--our script-->
+    <script src="../index.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-  <!--Bootstrap stuff-->
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
+    <!--Bootstrap stuff-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
 
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
 
-  <!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
 
-  <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyCfloakG9hhQWjP36A4Jp3Y-I0guiq2ln0",
-      authDomain: "unlbaseballstats.firebaseapp.com",
-      databaseURL: "https://unlbaseballstats.firebaseio.com",
-      projectId: "unlbaseballstats",
-      storageBucket: "unlbaseballstats.appspot.com",
-      messagingSenderId: "1019400233086",
-      appId: "1:1019400233086:web:4e8f1d24a96a20184ff82f",
-      measurementId: "G-ECY1SJ8EXN"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-  </script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCfloakG9hhQWjP36A4Jp3Y-I0guiq2ln0",
+        authDomain: "unlbaseballstats.firebaseapp.com",
+        databaseURL: "https://unlbaseballstats.firebaseio.com",
+        projectId: "unlbaseballstats",
+        storageBucket: "unlbaseballstats.appspot.com",
+        messagingSenderId: "1019400233086",
+        appId: "1:1019400233086:web:4e8f1d24a96a20184ff82f",
+        measurementId: "G-ECY1SJ8EXN"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
 
-  <script>
-    var play = [];
-    var condensedDate;
-    var d;
-    var modalPlayerName;
-    var name = "";
+    <script>
+      var play = [];
+      var condensedDate;
+      var d;
+      var modalPlayerName;
+      var name = "";
 
-    //make player buttons data driven
-    document.addEventListener("DOMContentLoaded", event => {
-      const dateLabel = document.querySelector(".heading-date");
+      //make player buttons data driven
+      document.addEventListener("DOMContentLoaded", event => {
+        const dateLabel = document.querySelector(".heading-date");
 
-      d = new Date();
+        d = new Date();
 
-      var dateString =
-        d.getMonth() + 1 + "-" + d.getDate() + "-" + d.getFullYear();
+        var dateString =
+          d.getMonth() + 1 + "-" + d.getDate() + "-" + d.getFullYear();
 
-      condensedDate = d.getMonth() + 1 + "" + d.getDate() + d.getFullYear();
-      var makeNewDay = true;
+        condensedDate = d.getMonth() + 1 + "" + d.getDate() + d.getFullYear();
+        var makeNewDay = true;
 
-      dateLabel.textContent = dateString;
-      const app = firebase.app();
-      const db = firebase.firestore();
+        dateLabel.textContent = dateString;
+        const app = firebase.app();
+        const db = firebase.firestore();
 
-      //for every play in the array, do this:
-      for (var i = 0; i < play.length; i++) {
-        data = doc.data()[d][play[i]];
+        //for every play in the array, do this:
+        for (var i = 0; i < play.length; i++) {
+          data = doc.data()[d][play[i]];
 
-        let fieldUpdate = "day." + play[i];
+          let fieldUpdate = "day." + play[i];
 
-        docRef.update({
-          [`${condensedDate}.${play[i]}`]: data + 1
-        });
+          docRef.update({
+            [`${condensedDate}.${play[i]}`]: data + 1
+          });
+
+          db.collection("Players")
+            .get()
+            .then(function(querySnapshot) {
+              querySnapshot.forEach(function(doc) {
+                // get the value of the isVisible variable for each person in the database
+                doc.data().isVisible;
+              });
+            })
+            .catch(function(error) {
+              console.log("Error getting documents: ", error);
+            });
+        }
 
         db.collection("Players")
           .get()
-          .then(function (querySnapshot) {
-            querySnapshot.forEach(function (doc) {
-              // get the value of the isVisible variable for each person in the database
-              doc.data().isVisible;
-            });
+          .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+              makeNewDay = true;
+
+              //get the data
+              var data = doc.data();
+              //console.log(doc.id, " => ", data[condensedDate].date);
+              console.log("--------", data);
+
+              //buid the leaderboards page
+              buildPlayerButton(doc.id);
+
+              for (var playerDates in data) {
+                if (
+                  data[playerDates].date == d.getDate() &&
+                  data[playerDates].month == d.getMonth() + 1 &&
+                  data[playerDates].year == d.getYear()
+                ) {
+                  makeNewDay = false;
+                }
+              }
+
+              if (makeNewDay) {
+                //make a new day in the firebase
+                let year = d.getYear();
+                let day = d.getDate();
+                let month = d.getMonth() + 1;
+
+                db.collection("Players")
+                  .doc(doc.id)
+                  .update({
+                    [condensedDate]: {
+                      year: year,
+                      month: month,
+                      day: day,
+                      picksP: 0,
+                      picksN: 0,
+                      competitiveP: 0,
+                      competitiveN: 0,
+                      divingP: 0,
+                      divingN: 0,
+                      groundP: 0,
+                      groundN: 0,
+                      throwingP: 0,
+                      throwingN: 0,
+                      fieldingP: 0,
+                      fieldingN: 0,
+                      awarenessP: 0,
+                      awarenessN: 0
+                    },
+                    isVisible: true,
+                    position: 0
+                  });
+              }
+
+              //DO NOT DELETE
+              // for (var key in data) {
+              //   let innerObject = data[key];
+              //   for (var innerData in innerObject) {
+              //     console.log(innerData, innerObject[innerData]);
+              //   }
+              // }
+            }); //end of the snapshot
           })
-          .catch(function (error) {
+          .catch(function(error) {
             console.log("Error getting documents: ", error);
+          }); //end of query
+      }); //end of dom loaded listener
+
+      function cardPressed(namePressed) {
+        play = [];
+        name = namePressed.id;
+        modalTitle.textContent = name;
+        console.log("pressed");
+      }
+
+      function statButtonPress(clicked) {
+        //search the array if there is one that matches
+        modalTitle.textContent = "";
+        removed = false;
+        var titleString = "";
+
+        //remove it if it's already in the array
+        for (var i = 0; i < play.length; i++) {
+          //if it's in there, remove it
+          if (play[i] == clicked.id) {
+            play.splice(i, 1);
+            removed = true;
+          }
+        }
+
+        if (!removed) {
+          play.unshift(clicked.id);
+        }
+
+        for (i in play) {
+          if (play[i] == clicked.id) {
+            console.log(play);
+          }
+        }
+
+        //build the string to print
+        for (var i = play.length - 1; i >= 0; i--) {
+          titleString = titleString + ", " + play[i];
+        }
+
+        //loop through the array and build the title FIXME:
+        modalTitle.textContent = name + titleString;
+      }
+
+      function buildPlayerButton(playerName) {
+        //build the card
+        let playerCardButton = document.createElement("div");
+        playerCardButton.className = "player-card";
+        playerCardButton.id = playerName;
+
+        playerCardButton.setAttribute("data-toggle", "modal");
+        playerCardButton.setAttribute("data-target", "#myModal");
+        playerCardButton.setAttribute("onclick", "cardPressed(this)");
+
+        var nameLabel = document.createElement("p");
+        nameLabel.textContent = playerName;
+
+        playerCardButton.appendChild(nameLabel);
+
+        //add it to screen
+        let screen = document.querySelector(".content");
+        screen.appendChild(playerCardButton);
+      }
+
+      function confirmPressed() {
+        showToast(name + " " + play + " " + type);
+
+        //get current value
+        changeDatabaseVal();
+      }
+
+      function changeDatabaseVal() {
+        var data;
+
+        var docRef = db.collection("Players").doc(name);
+        docRef
+          .get()
+          .then(function(doc) {
+            if (doc.exists) {
+              //get the current value
+              //FIXME multiple days don't work
+
+              //loop through the array of plays
+              //for every play in the array, do this:
+
+              console.log(play);
+
+              for (var i = 0; i < play.length; i++) {
+                data = doc.data()[condensedDate][play[i]];
+                console.log(("stuff: ", data));
+
+                let fieldUpdate = "day." + play[i];
+
+                docRef.update({
+                  [`${condensedDate}.${play[i]}`]: data + 1
+                });
+
+                console.log("after loop");
+
+                // db.collection("Players")
+                //   .get()
+                //   .then(function(querySnapshot) {
+                //     querySnapshot.forEach(function(doc) {
+                //       // get the value of the isVisible variable for each person in the database
+                //       doc.data().isVisible;
+                //     });
+                //   })
+                //   .catch(function(error) {
+                //     console.log("Error getting documents: ", error);
+                //   });
+              }
+              //update each play in the array
+
+              console.log("updated", data);
+
+              //clear out the array for the next time around
+              play = [];
+            } else {
+              // doc.data() will be undefined in this case
+              console.log("No such document!");
+            }
+          })
+          .catch(function(error) {
+            console.log("Error getting document:", error);
           });
       }
-
-      db.collection("Players")
-        .get()
-        .then(function (querySnapshot) {
-          querySnapshot.forEach(function (doc) {
-            makeNewDay = true;
-
-            //get the data
-            var data = doc.data();
-            //console.log(doc.id, " => ", data[condensedDate].date);
-            console.log("--------", data);
-
-            //buid the leaderboards page
-            buildPlayerButton(doc.id);
-
-            for (var playerDates in data) {
-              if (
-                data[playerDates].date == d.getDate() &&
-                data[playerDates].month == d.getMonth() + 1 &&
-                data[playerDates].year == d.getYear()
-              ) {
-                makeNewDay = false;
-              }
-            }
-
-            if (makeNewDay) {
-              //make a new day in the firebase
-              let year = d.getYear();
-              let day = d.getDate();
-              let month = d.getMonth() + 1;
-
-              db.collection("Players")
-                .doc(doc.id)
-                .update({
-                  [condensedDate]: {
-                    year: year,
-                    month: month,
-                    day: day,
-                    picksP: 0,
-                    picksN: 0,
-                    competitiveP: 0,
-                    competitiveN: 0,
-                    divingP: 0,
-                    divingN: 0,
-                    groundP: 0,
-                    groundN: 0,
-                    throwingP: 0,
-                    throwingN: 0,
-                    fieldingP: 0,
-                    fieldingN: 0,
-                    awarenessP: 0,
-                    awarenessN: 0
-                  },
-                  isVisible: true,
-                  position: 0
-                });
-            }
-
-            //DO NOT DELETE
-            // for (var key in data) {
-            //   let innerObject = data[key];
-            //   for (var innerData in innerObject) {
-            //     console.log(innerData, innerObject[innerData]);
-            //   }
-            // }
-          }); //end of the snapshot
-        })
-        .catch(function (error) {
-          console.log("Error getting documents: ", error);
-        }); //end of query
-    }); //end of dom loaded listener
-
-    function cardPressed(namePressed) {
-      play = [];
-      name = namePressed.id;
-      modalTitle.textContent = name;
-      console.log("pressed");
-    }
-
-    function statButtonPress(clicked) {
-      //search the array if there is one that matches
-      modalTitle.textContent = "";
-      removed = false;
-      var titleString = "";
-
-      //remove it if it's already in the array
-      for (var i = 0; i < play.length; i++) {
-        //if it's in there, remove it
-        if (play[i] == clicked.id) {
-          play.splice(i, 1);
-          removed = true;
-        }
-      }
-
-      if (!removed) {
-        play.unshift(clicked.id);
-      }
-
-      for (i in play) {
-        if (play[i] == clicked.id) {
-          console.log(play);
-        }
-      }
-
-      //build the string to print
-      for (var i = play.length - 1; i >= 0; i--) {
-        titleString = titleString + ", " + play[i];
-      }
-
-      //loop through the array and build the title FIXME:
-      modalTitle.textContent = name + titleString;
-    }
-
-    function buildPlayerButton(playerName) {
-      //build the card
-      let playerCardButton = document.createElement("div");
-      playerCardButton.className = "player-card";
-      playerCardButton.id = playerName;
-
-      playerCardButton.setAttribute("data-toggle", "modal");
-      playerCardButton.setAttribute("data-target", "#myModal");
-      playerCardButton.setAttribute("onclick", "cardPressed(this)");
-
-      var nameLabel = document.createElement("p");
-      nameLabel.textContent = playerName;
-
-      playerCardButton.appendChild(nameLabel);
-
-      //add it to screen
-      let screen = document.querySelector(".content");
-      screen.appendChild(playerCardButton);
-    }
-
-    function confirmPressed() {
-      showToast(name + " " + play + " " + type);
-
-      //get current value
-      changeDatabaseVal();
-    }
-
-    function changeDatabaseVal() {
-      var data;
-
-      var docRef = db.collection("Players").doc(name);
-      docRef
-        .get()
-        .then(function (doc) {
-          if (doc.exists) {
-            //get the current value
-            //FIXME multiple days don't work
-
-            //loop through the array of plays
-            //for every play in the array, do this:
-
-            console.log(play);
-
-            for (var i = 0; i < play.length; i++) {
-              data = doc.data()[condensedDate][play[i]];
-              console.log(("stuff: ", data));
-
-              let fieldUpdate = "day." + play[i];
-
-              docRef.update({
-                [`${condensedDate}.${play[i]}`]: data + 1
-              });
-
-              console.log("after loop");
-
-              // db.collection("Players")
-              //   .get()
-              //   .then(function(querySnapshot) {
-              //     querySnapshot.forEach(function(doc) {
-              //       // get the value of the isVisible variable for each person in the database
-              //       doc.data().isVisible;
-              //     });
-              //   })
-              //   .catch(function(error) {
-              //     console.log("Error getting documents: ", error);
-              //   });
-            }
-            //update each play in the array
-
-            console.log("updated", data);
-
-            //clear out the array for the next time around
-            play = [];
-          } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-          }
-        })
-        .catch(function (error) {
-          console.log("Error getting document:", error);
-        });
-    }
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
