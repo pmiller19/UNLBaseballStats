@@ -276,6 +276,7 @@
         console.log(db);
       }
 
+      // moves the players around based off their visibility
       function updatePage() {
         let visiblePlayersContainer = document.getElementById("visiblePlayers");
         let hiddenPlayersContainer = document.getElementById("hiddenPlayers");
@@ -301,6 +302,7 @@
           });
       }
 
+      // builds the player cards
       function buildPlayerCard(name, isShown) {
         /* <div class="player-card" id="Boynton" onclick="visible(this)">
          <p class="minus-names">- Boynton (Click to remove)</p>
